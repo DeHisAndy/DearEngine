@@ -1,0 +1,841 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{b5feb7a2-e817-4a1e-be87-85ea16210f51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source\Public\Core">
+      <UniqueIdentifier>{65d3976c-7c61-49fb-8c6b-a889927c4cbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Delegates">
+      <UniqueIdentifier>{14c292f9-ef6e-40c7-8276-d4fc5a90c83e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Engine">
+      <UniqueIdentifier>{e02e5b28-0caa-4128-973d-1fcb9419ec13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\FunctionLibrary">
+      <UniqueIdentifier>{02395716-69be-434e-a676-15345a73651d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\GameMode">
+      <UniqueIdentifier>{99bc0589-e245-4737-9749-ccafc3cf69c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Helper">
+      <UniqueIdentifier>{a5717483-6b36-43bd-b9b1-670cad0e01bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object">
+      <UniqueIdentifier>{a6fc6312-c648-43f1-b502-00fbd096d2ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object\Actor">
+      <UniqueIdentifier>{a0c865cc-cea7-4eb3-a5f2-363a15d1bfb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object\Object">
+      <UniqueIdentifier>{6152a25f-437f-46bb-a86b-32f73685aaa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object\Object\Component">
+      <UniqueIdentifier>{7a4a025b-eb55-46eb-946a-33a1d05c20c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object\Object\GameInstance">
+      <UniqueIdentifier>{9cb471b7-3d84-45f1-b2fa-f52d8a052851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object\Object\World">
+      <UniqueIdentifier>{4a912620-4097-4a98-b992-61f403a21aad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Render">
+      <UniqueIdentifier>{360bb9ca-ca40-417b-82f0-fd2fb9201c4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\UI">
+      <UniqueIdentifier>{5724e62c-27ba-40e1-b335-0670f756957c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Vector">
+      <UniqueIdentifier>{5250903b-22b0-4e1d-a1bf-35df255093c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Platform">
+      <UniqueIdentifier>{474bf144-e19f-40b7-9ecf-7837704ec82a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty">
+      <UniqueIdentifier>{e9ef632b-ad0c-43b3-bfc4-193134f21d14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\Assimp">
+      <UniqueIdentifier>{08101250-ed34-4def-a3ef-c2752c902c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\DearImgui">
+      <UniqueIdentifier>{3e476037-76cd-4d5a-b4a8-17d34a2ea0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\DirectXTex">
+      <UniqueIdentifier>{a7022c7c-90ab-450b-b9c3-c1bcad0fcafd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\DirectXTex\DDSTextureLoader">
+      <UniqueIdentifier>{e5d34963-9a1a-40c7-a17f-f43106b22dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\DirectXTex\DirectXTex">
+      <UniqueIdentifier>{4b1aa878-232a-4dbd-b1f2-f5673b64aadf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\DirectXTex\WICTextureLoader">
+      <UniqueIdentifier>{db785214-16ec-4b2e-b22a-067fd60b3c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\Effect">
+      <UniqueIdentifier>{a35df654-03fb-40cd-8fe9-87ab3c48e94f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\SSE">
+      <UniqueIdentifier>{d2650b3a-9d18-4aa8-992a-4b5e7f6fc0c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\ThirdParty\Stb">
+      <UniqueIdentifier>{e515d8cf-ce25-4c9b-b7f4-75f065dd0f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Private\Core">
+      <UniqueIdentifier>{bb85af25-a8ce-44b7-aa23-11cfef73049f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Engine">
+      <UniqueIdentifier>{0baab518-5e47-4036-a1a9-d47724455c75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\FunctionLibrary">
+      <UniqueIdentifier>{b48853ba-028e-4ba1-922e-9f46a4474d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\GameMode">
+      <UniqueIdentifier>{119eac57-a1c9-41e1-bf84-e868565acefd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Helper">
+      <UniqueIdentifier>{8b0d5478-6768-4634-8201-a3ade14ba525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object">
+      <UniqueIdentifier>{be23d411-4b52-412b-ba1b-01e72c63cd6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object\Actor">
+      <UniqueIdentifier>{a6a9d435-11a8-4706-a9ee-146a125153a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object\Object">
+      <UniqueIdentifier>{005af33b-d3ed-4ae3-8df4-39efb69db325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object\Object\Component">
+      <UniqueIdentifier>{1aaaf5b3-3273-4c8b-99b8-136082ca3808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object\Object\GameInstance">
+      <UniqueIdentifier>{33c102be-9715-4d5b-8e7a-22785c372227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object\Object\World">
+      <UniqueIdentifier>{0d1c969d-f47b-4bbc-823f-3984957a68e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Render">
+      <UniqueIdentifier>{cba73237-27a3-4f63-817f-856e139a3310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\UI">
+      <UniqueIdentifier>{e7c5b26e-76e1-46ce-b77e-2ad6de2a0c0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Vector">
+      <UniqueIdentifier>{ec460ab2-68db-4773-a319-ef00c82cf8e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Platform">
+      <UniqueIdentifier>{019dd9d9-d580-4814-810a-effb45d90784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object\Object\Component\Light">
+      <UniqueIdentifier>{c906453c-1576-4c81-918d-c023316c5893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object\Object\Component\Light">
+      <UniqueIdentifier>{9fd50703-ef36-4c97-90f3-c54c6b72fb2f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DerEngine\Source\Public\Core\Delegates\Delegate.h">
+      <Filter>Source\Public\Core\Delegates</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Engine\Game.h">
+      <Filter>Source\Public\Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Engine\GameViewport.h">
+      <Filter>Source\Public\Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\GamePlayStatics.h">
+      <Filter>Source\Public\Core\FunctionLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\KismetRenderLibrary.h">
+      <Filter>Source\Public\Core\FunctionLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\KismetStringLibrary.h">
+      <Filter>Source\Public\Core\FunctionLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\KismetSystemLibrary.h">
+      <Filter>Source\Public\Core\FunctionLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\Math.h">
+      <Filter>Source\Public\Core\FunctionLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\Paths.h">
+      <Filter>Source\Public\Core\FunctionLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\DearPawn.h">
+      <Filter>Source\Public\Core\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\GameMode.h">
+      <Filter>Source\Public\Core\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\Pawn.h">
+      <Filter>Source\Public\Core\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\PlayerController.h">
+      <Filter>Source\Public\Core\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Helper\FileHelper.h">
+      <Filter>Source\Public\Core\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Helper\GameTimer.h">
+      <Filter>Source\Public\Core\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Helper\Log.h">
+      <Filter>Source\Public\Core\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\IntPoint.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\MathType.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Matrix.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Quat.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Rotator.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\ScalarRegister.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\String.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\TransformVectorized.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Vector.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Vector2D.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Vector4D.h">
+      <Filter>Source\Public\Core\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\UI\Widget.h">
+      <Filter>Source\Public\Core\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\Render.h">
+      <Filter>Source\Public\Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RenderBase.h">
+      <Filter>Source\Public\Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RenderState.h">
+      <Filter>Source\Public\Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RHI.h">
+      <Filter>Source\Public\Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\ShaderCompilerWorker.h">
+      <Filter>Source\Public\Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\ShaderEffect.h">
+      <Filter>Source\Public\Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Actor\Actor.h">
+      <Filter>Source\Public\Core\Object\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Object.h">
+      <Filter>Source\Public\Core\Object\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\TextureManage.h">
+      <Filter>Source\Public\Core\Object\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\ActorComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\AssimpPrimitiveComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\InputComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\MeshComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\PrimitiveComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\SceneComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\GameInstance\GameInstance.h">
+      <Filter>Source\Public\Core\Object\Object\GameInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\GameInstance\GameProjectSetting.h">
+      <Filter>Source\Public\Core\Object\Object\GameInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\World\World.h">
+      <Filter>Source\Public\Core\Object\Object\World</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Platform\WindowsClass.h">
+      <Filter>Source\Public\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\aabb.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ai_assert.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\anim.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\BaseImporter.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Bitmap.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\BlobIOSystem.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ByteSwapper.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\camera.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\cexport.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\cfileio.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\cimport.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\color4.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Compiler\poppack1.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Compiler\pstdint.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Compiler\pushpack1.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\config.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\CreateAnimMesh.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\DefaultIOStream.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\DefaultIOSystem.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\DefaultLogger.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Defines.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\defs.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Exceptional.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Exporter.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\fast_atof.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\GenericProperty.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Hash.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Importer.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\importerdesc.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\IOStream.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\IOStreamBuffer.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\IOSystem.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\irrXMLWrapper.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\light.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\LineSplitter.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\LogAux.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Logger.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\LogStream.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Macros.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\material.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\MathFunctions.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix3x3.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix4x4.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\MemoryIOWrapper.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\mesh.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\metadata.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\NullLogger.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ParsingUtils.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\pbrmaterial.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\port\AndroidJNI\AndroidJNIIOSystem.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\postprocess.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Profiler.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ProgressHandler.hpp">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\qnan.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\quaternion.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\RemoveComments.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\scene.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SceneCombiner.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SGSpatialSort.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SkeletonMeshBuilder.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SmoothingGroups.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SpatialSort.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StandardShapes.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StreamReader.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StreamWriter.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StringComparison.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StringUtils.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Subdivision.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\texture.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\TinyFormatter.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\types.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector2.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector3.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\version.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Vertex.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\XMLTools.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ZipArchiveIOSystem.h">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imconfig.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_dx11.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_win32.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_internal.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imstb_rectpack.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imstb_textedit.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imstb_truetype.h">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DDSTextureLoader\DDSTextureLoader.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DDSTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\d3dx12.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DDS.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTex.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexP.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\Filters.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\scoped.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\WICTextureLoader\WICTextureLoader.h">
+      <Filter>Source\Public\ThirdParty\DirectXTex\WICTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Effect\inc\d3dx11effect.h">
+      <Filter>Source\Public\ThirdParty\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Effect\inc\d3dxGlobal.h">
+      <Filter>Source\Public\ThirdParty\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Stb\stb_image.h">
+      <Filter>Source\Public\ThirdParty\Stb</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\SSE\MathSSE.h">
+      <Filter>Source\Public\ThirdParty\SSE</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\SSE\sse_mathfun.h">
+      <Filter>Source\Public\ThirdParty\SSE</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\SSE\UnrealMathVectorConstants.h">
+      <Filter>Source\Public\ThirdParty\SSE</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\Light\LightComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\Light\PointLightComponent.h">
+      <Filter>Source\Public\Core\Object\Object\Component\Light</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\color4.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\material.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix3x3.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix4x4.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\quaternion.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SmoothingGroups.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector2.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector3.inl">
+      <Filter>Source\Public\ThirdParty\Assimp</Filter>
+    </None>
+    <None Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTex.inl">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui.cpp">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_demo.cpp">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_draw.cpp">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_dx11.cpp">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_win32.cpp">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_tables.cpp">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_widgets.cpp">
+      <Filter>Source\Public\ThirdParty\DearImgui</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DDSTextureLoader\DDSTextureLoader.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DDSTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC4BC5.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC6HBC7.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexCompress.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexConvert.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexD3D11.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexD3D12.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexDDS.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexFlipRotate.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexHDR.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexImage.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexMipmaps.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexMisc.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexNormalMaps.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexPMAlpha.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexResize.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexTGA.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexUtil.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexWIC.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\WICTextureLoader\WICTextureLoader.cpp">
+      <Filter>Source\Public\ThirdParty\DirectXTex\WICTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Engine\Game.cpp">
+      <Filter>Source\Private\Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Engine\GameViewport.cpp">
+      <Filter>Source\Private\Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\GamePlayStatics.cpp">
+      <Filter>Source\Private\Core\FunctionLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\KismetRenderLibrary.cpp">
+      <Filter>Source\Private\Core\FunctionLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\KismetStringLibrary.cpp">
+      <Filter>Source\Private\Core\FunctionLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\KismetSystemLibrary.cpp">
+      <Filter>Source\Private\Core\FunctionLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\Math.cpp">
+      <Filter>Source\Private\Core\FunctionLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\Paths.cpp">
+      <Filter>Source\Private\Core\FunctionLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\DearPawn.cpp">
+      <Filter>Source\Private\Core\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\GameMode.cpp">
+      <Filter>Source\Private\Core\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\Pawn.cpp">
+      <Filter>Source\Private\Core\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\PlayerController.cpp">
+      <Filter>Source\Private\Core\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Helper\FileHelper.cpp">
+      <Filter>Source\Private\Core\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Helper\GameTimer.cpp">
+      <Filter>Source\Private\Core\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Helper\Log.cpp">
+      <Filter>Source\Private\Core\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\DearMath.cpp">
+      <Filter>Source\Private\Core\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Matrix.cpp">
+      <Filter>Source\Private\Core\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Quat.cpp">
+      <Filter>Source\Private\Core\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Rotator.cpp">
+      <Filter>Source\Private\Core\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\String.cpp">
+      <Filter>Source\Private\Core\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\TransformVectorized.cpp">
+      <Filter>Source\Private\Core\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Vector.cpp">
+      <Filter>Source\Private\Core\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\UI\Widget.cpp">
+      <Filter>Source\Private\Core\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\Render.cpp">
+      <Filter>Source\Private\Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RenderBase.cpp">
+      <Filter>Source\Private\Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RenderState.cpp">
+      <Filter>Source\Private\Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RHI.cpp">
+      <Filter>Source\Private\Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\ShaderCompilerWorker.cpp">
+      <Filter>Source\Private\Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\ShaderEffect.cpp">
+      <Filter>Source\Private\Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Actor\Actor.cpp">
+      <Filter>Source\Private\Core\Object\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Object.cpp">
+      <Filter>Source\Private\Core\Object\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\TextureManage.cpp">
+      <Filter>Source\Private\Core\Object\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\ActorComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\AssimpPrimitiveComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\InputComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\MeshComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\PrimitiveComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\SceneComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\GameInstance\GameInstance.cpp">
+      <Filter>Source\Private\Core\Object\Object\GameInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\GameInstance\GameProjectSetting.cpp">
+      <Filter>Source\Private\Core\Object\Object\GameInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\World\World.cpp">
+      <Filter>Source\Private\Core\Object\Object\World</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Platform\WindowsClass.cpp">
+      <Filter>Source\Private\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\Light\LightComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\Light\PointLightComponent.cpp">
+      <Filter>Source\Private\Core\Object\Object\Component\Light</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

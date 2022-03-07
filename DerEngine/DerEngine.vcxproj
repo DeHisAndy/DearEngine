@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DerEngine\Source\Public\Core\Delegates\Delegate.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Engine\Game.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Engine\GameViewport.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\GamePlayStatics.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\KismetRenderLibrary.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\KismetStringLibrary.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\KismetSystemLibrary.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\Math.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\Paths.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\DearPawn.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\GameMode.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\Pawn.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\GameMode\PlayerController.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Helper\FileHelper.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Helper\GameTimer.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Helper\Log.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Actor\Actor.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\ActorComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\AssimpPrimitiveComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\InputComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\Light\LightComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\Light\PointLightComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\MeshComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\PrimitiveComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\SceneComponent.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\GameInstance\GameInstance.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\GameInstance\GameProjectSetting.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Object.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\TextureManage.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\World\World.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\Render.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RenderBase.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RenderState.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RHI.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\ShaderCompilerWorker.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\ShaderEffect.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\UI\Widget.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\IntPoint.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\MathType.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Matrix.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Quat.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Rotator.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\ScalarRegister.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\String.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\TransformVectorized.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Vector.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Vector2D.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Vector\Vector4D.h" />
+    <ClInclude Include="DerEngine\Source\Public\Platform\WindowsClass.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\aabb.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ai_assert.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\anim.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\BaseImporter.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Bitmap.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\BlobIOSystem.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ByteSwapper.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\camera.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\cexport.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\cfileio.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\cimport.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\color4.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Compiler\pstdint.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\config.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\CreateAnimMesh.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\DefaultIOStream.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\DefaultIOSystem.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Defines.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\defs.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Exceptional.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Exporter.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\fast_atof.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\GenericProperty.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Hash.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Importer.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\importerdesc.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\IOStream.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\IOStreamBuffer.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\IOSystem.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\irrXMLWrapper.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\light.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\LineSplitter.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\LogAux.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Logger.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\LogStream.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Macros.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\material.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\MathFunctions.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix3x3.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix4x4.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\MemoryIOWrapper.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\mesh.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\metadata.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\NullLogger.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ParsingUtils.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\pbrmaterial.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\port\AndroidJNI\AndroidJNIIOSystem.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\postprocess.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Profiler.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\qnan.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\quaternion.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\RemoveComments.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\scene.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SceneCombiner.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SGSpatialSort.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SkeletonMeshBuilder.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SmoothingGroups.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SpatialSort.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StandardShapes.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StreamReader.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StreamWriter.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StringComparison.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\StringUtils.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Subdivision.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\texture.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\TinyFormatter.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\types.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector2.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector3.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\version.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\Vertex.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\XMLTools.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\ZipArchiveIOSystem.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imconfig.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_dx11.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_win32.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_internal.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imstb_rectpack.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imstb_textedit.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DearImgui\imstb_truetype.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DDSTextureLoader\DDSTextureLoader.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\d3dx12.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DDS.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTex.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexP.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\Filters.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\scoped.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\DirectXTex\WICTextureLoader\WICTextureLoader.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Effect\inc\d3dx11effect.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Effect\inc\d3dxGlobal.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\SSE\MathSSE.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\SSE\sse_mathfun.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\SSE\UnrealMathVectorConstants.h" />
+    <ClInclude Include="DerEngine\Source\Public\ThirdParty\Stb\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\color4.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\material.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix3x3.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\matrix4x4.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\quaternion.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\SmoothingGroups.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector2.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\vector3.inl" />
+    <None Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTex.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DerEngine\Source\Private\Core\Engine\Game.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Engine\GameViewport.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\GamePlayStatics.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\KismetRenderLibrary.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\KismetStringLibrary.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\KismetSystemLibrary.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\Math.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\FunctionLibrary\Paths.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\DearPawn.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\GameMode.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\Pawn.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\GameMode\PlayerController.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Helper\FileHelper.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Helper\GameTimer.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Helper\Log.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Actor\Actor.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\ActorComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\AssimpPrimitiveComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\InputComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\Light\LightComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\Light\PointLightComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\MeshComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\PrimitiveComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\SceneComponent.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\GameInstance\GameInstance.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\GameInstance\GameProjectSetting.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Object.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\TextureManage.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\World\World.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\Render.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RenderBase.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RenderState.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RHI.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\ShaderCompilerWorker.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\ShaderEffect.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\UI\Widget.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\DearMath.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Matrix.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Quat.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Rotator.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\String.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\TransformVectorized.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Vector\Vector.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Platform\WindowsClass.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_demo.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_draw.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_tables.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DearImgui\imgui_widgets.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DDSTextureLoader\DDSTextureLoader.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC4BC5.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\BC6HBC7.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexCompress.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexConvert.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexD3D11.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexD3D12.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexDDS.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexFlipRotate.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexHDR.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexImage.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexMipmaps.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexMisc.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexNormalMaps.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexPMAlpha.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexResize.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexTGA.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexUtil.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\DirectXTex\DirectXTexWIC.cpp" />
+    <ClCompile Include="DerEngine\Source\Public\ThirdParty\DirectXTex\WICTextureLoader\WICTextureLoader.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{69eb3960-ea53-4071-8d29-528142d0dd22}</ProjectGuid>
+    <RootNamespace>DerEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>DerEngine\Lib\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>DerEngine\Binaries\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>DerEngine\Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>DerEngine\Source\Public\ThirdParty\Effect\inc;DerEngine\Source\Public\ThirdParty\Assimp\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>DerEngine\Source\Public\ThirdParty\Effect\Bin\$(Platform)\$(Configuration)\;DerEngine\Source\Public\ThirdParty\Assimp\Bin;$(LibraryPath)</LibraryPath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;D3DCompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

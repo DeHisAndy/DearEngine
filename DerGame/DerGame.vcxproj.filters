@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{5c94554c-77ee-4ce1-88dc-18a5f83e86ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source\Public\Core">
+      <UniqueIdentifier>{0a575246-f77a-4ce8-b137-5b1eb83a28bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\World">
+      <UniqueIdentifier>{cafcb06f-9b99-4119-a53e-4985395eec2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object">
+      <UniqueIdentifier>{e6d4ddb5-4b25-4deb-a8d7-1c4431e767d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\Object\Component">
+      <UniqueIdentifier>{f863356c-6315-4859-9cd0-f37463c08401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Public\Core\UI">
+      <UniqueIdentifier>{5ff6d010-bbce-4f62-a674-e1650c981108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Private\Platform">
+      <UniqueIdentifier>{369d50c0-e6a6-4c48-966a-4719c1d12404}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Platform\Main">
+      <UniqueIdentifier>{90a55f81-ad7e-4448-b845-fae908c74ca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core">
+      <UniqueIdentifier>{bdc27809-67bb-4cc6-a4d7-19aa0dda85ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\World">
+      <UniqueIdentifier>{90f940ee-64ab-4b20-8933-2e255777b8b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object">
+      <UniqueIdentifier>{6f5e1276-e94f-43bf-b720-f153c3b2760e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\Object\Component">
+      <UniqueIdentifier>{92033f64-a238-49a4-92e7-1e8a04fe84fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Private\Core\UI">
+      <UniqueIdentifier>{bfa9a4b2-5f5e-4f41-8a2a-72ca8196643f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shaders">
+      <UniqueIdentifier>{fa36b50a-5a47-45d9-84dc-9a62d0342a65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shaders\Public">
+      <UniqueIdentifier>{f7a47c5d-4d66-47d9-a106-c93429e28a54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shaders\Private">
+      <UniqueIdentifier>{7f22c7ec-1ca6-47f4-aea1-8621f584fbcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shaders\Public\Light">
+      <UniqueIdentifier>{d8b86861-eb5f-4fa3-ab87-e1428de8cce0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DerGame\Source\Private\Platform\Main\Main.cpp">
+      <Filter>Source\Private\Platform\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="DerGame\Source\Private\Core\World\DeferredRenderingWorld.cpp">
+      <Filter>Source\Private\Core\World</Filter>
+    </ClCompile>
+    <ClCompile Include="DerGame\Source\Private\Core\Object\GameSetting.cpp">
+      <Filter>Source\Private\Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="DerGame\Source\Private\Core\Object\Component\DearInputComponent.cpp">
+      <Filter>Source\Private\Core\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DerGame\Source\Private\Core\UI\DearImgui.cpp">
+      <Filter>Source\Private\Core\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="DerGame\Source\Private\Core\World\ForwardRenderingWorld.cpp">
+      <Filter>Source\Private\Core\World</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DerGame\Source\Public\Core\World\DeferredRenderingWorld.h">
+      <Filter>Source\Public\Core\World</Filter>
+    </ClInclude>
+    <ClInclude Include="DerGame\Source\Public\Core\Object\GameSetting.h">
+      <Filter>Source\Public\Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DerGame\Source\Public\Core\Object\Component\DearInputComponent.h">
+      <Filter>Source\Public\Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DerGame\Source\Public\Core\UI\DearImgui.h">
+      <Filter>Source\Public\Core\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="DerGame\Source\Public\Core\World\ForwardRenderingWorld.h">
+      <Filter>Source\Public\Core\World</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Assets\Shaders\Public\VSShader.usf">
+      <Filter>Source\Shaders\Public</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\Public\DrawTexture.usf">
+      <Filter>Source\Shaders\Public</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\Private\UE_BRDF.ush">
+      <Filter>Source\Shaders\Private</Filter>
+    </None>
+    <None Include="Assets\Shaders\Public\Light\ForwardRenderingLight.usf">
+      <Filter>Source\Shaders\Public\Light</Filter>
+    </None>
+  </ItemGroup>
+</Project>

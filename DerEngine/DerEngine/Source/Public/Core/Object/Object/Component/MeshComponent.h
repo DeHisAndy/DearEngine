@@ -1,6 +1,5 @@
 #include "PrimitiveComponent.h"
-//封装shader反射框架 使用的是Directx11 Effect
-#define SHADER_DIRECTX11_EFFECT
+#include "../../../Engine/CoreTypes.h"
 
 #ifdef  SHADER_DIRECTX11_EFFECT
 #include <d3dx11effect.h>

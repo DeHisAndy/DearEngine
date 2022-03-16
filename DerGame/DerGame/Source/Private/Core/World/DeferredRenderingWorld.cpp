@@ -63,7 +63,7 @@ void UDeferredRenderingWorld::Destroy()
 void UDeferredRenderingWorld::InitWorld()
 {
 	//ªÊ÷∆UI
- 	//UWidget::CreateWidget(new UDearImgui(), 0);
+ 	UWidget::CreateWidget(new UDearImgui(), 0);
 	{
 		AActor* meshActor = new AActor();
 		UAssimpPrimitiveComponent* assetComponent = new UAssimpPrimitiveComponent("Assets/Content/Mesh/DamagedHelmet.fbx", "Assets/Shaders/Public/VSShader.usf");

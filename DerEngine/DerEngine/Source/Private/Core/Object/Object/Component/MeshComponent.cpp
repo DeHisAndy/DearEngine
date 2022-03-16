@@ -25,9 +25,9 @@ void UMeshComponent::Draw()
 		{
 			UINT strides = vertexBuffer->strides;
 			UINT offsets = 0;
-			FRHI::RHIDX11_SetVertexBuffers(0, 1, vertexBuffer->buffer.GetAddressOf(), &strides, &offsets);
-			FRHI::RHIDX11_SetIndexBuffer(indexBuffer->buffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-			FRHI::RHIDX11_SetInputLayout(GetInputLayout());
+			FRHI::RHI_SetVertexBuffers(0, 1, vertexBuffer->buffer.GetAddressOf(), &strides, &offsets);
+			FRHI::RHI_SetIndexBuffer(indexBuffer->buffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+			FRHI::RHI_SetInputLayout(GetInputLayout());
 			D3DX11_TECHNIQUE_DESC techDesc;
 
 			EffectTechnique->GetDesc(&techDesc);
@@ -37,8 +37,8 @@ void UMeshComponent::Draw()
 
 				ID3DX11EffectPass* pass = EffectTechnique->GetPassByIndex(i);
 
-				pass->Apply(0, FRHI::RHIDX11_GetID3D11DeviceContext());
-				FRHI::RHIDX11_DrawIndexed(indexBuffer->cout, 0, 0);
+				pass->Apply(0, FRHI::RHI_GetID3D11DeviceContext());
+				FRHI::RHI_DrawIndexed(indexBuffer->cout, 0, 0);
 			}
 		}
 
@@ -51,7 +51,7 @@ void UMeshComponent::Draw()
 void UMeshComponent::SetEffectShader(FString name, const D3D11_INPUT_ELEMENT_DESC* pInputElementDescs/*=null*/)
 {
 #ifdef  SHADER_DIRECTX11_EFFECT
-	UShaderEffect* effect = dynamic_cast<UShaderEffect*>(FRHI::RHIDX11_GetShaderCompilerWorker());
+	UShaderEffect* effect = dynamic_cast<UShaderEffect*>(FRHI::RHI_GetShaderCompilerWorker());
 	if (effect)
 	{
 
@@ -65,7 +65,7 @@ void UMeshComponent::SetEffectShader(FString name, const D3D11_INPUT_ELEMENT_DES
 			HR(EffectTechnique->GetPassByIndex(0)->GetDesc(&PassDesc));
 			if (pInputElementDescs == nullptr)
 			{
-				HR(FRHI::RHIDX11_GetD3d11Device()->CreateInputLayout(UShaderCompilerWorker::Shader_InputInfo::Inputlayout, ARRAYSIZE(UShaderCompilerWorker::Shader_InputInfo::Inputlayout), PassDesc.pIAInputSignature,
+				HR(FRHI::RHI_GetD3d11Device()->CreateInputLayout(UShaderCompilerWorker::Shader_InputInfo::Inputlayout, ARRAYSIZE(UShaderCompilerWorker::Shader_InputInfo::Inputlayout), PassDesc.pIAInputSignature,
 					PassDesc.IAInputSignatureSize, GetInputLayoutAddress()));
 			}
 			else

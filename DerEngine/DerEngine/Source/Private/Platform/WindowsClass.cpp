@@ -184,7 +184,7 @@ void WindowsClass::CalculateFrameStats()
 
 LRESULT WindowsClass::MsgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	if (!FRHI::RHIDX11_GetRenderStart())
+	if (!FRHI::RHI_GetRenderStart())
 	{
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}

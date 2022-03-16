@@ -590,6 +590,9 @@
     <ClInclude Include="DerEngine\Source\Public\Core\Object\Object\Component\Light\PointLightComponent.h">
       <Filter>Source\Public\Core\Object\Object\Component\Light</Filter>
     </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Engine\CoreTypes.h">
+      <Filter>Source\Private\Core\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\color4.inl">

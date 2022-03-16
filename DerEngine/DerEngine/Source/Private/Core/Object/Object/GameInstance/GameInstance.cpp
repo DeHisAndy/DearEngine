@@ -112,11 +112,11 @@ void UGameInstance::UpdateScene(float DeltaSeconds)
 
 void UGameInstance::DrawScene(float DeltaSeconds)
 {
-	FRHI::RHIDX11_ClearSwapChainRTVAndDSV(FVector4D(0.f, 0.f, 0.f, 1.f));
-	FRHI::RHIDX11_SetSwapChainRenderTargetAndDepthStencilView();
-	TypeAS<UGameViewport>(defulatGameViewport, FString("GameInstance Draw UGameViewport=null"))->Draw();
+	FRHI::RHI_ClearSwapChainRTVAndDSV(FVector4D(0.f, 0.f, 0.f, 1.f));
+	FRHI::RHI_SetSwapChainRenderTargetAndDepthStencilView();
  	TypeAS<UWorld>(defaultWrold, FString("GameInstance DrawScene Wrold=null"))->DrawScene(DeltaSeconds);
-	FRHI::RHIDX11_ExecutePresent();
+	TypeAS<UGameViewport>(defulatGameViewport, FString("GameInstance Draw UGameViewport=null"))->Draw();
+	FRHI::RHI_ExecutePresent();
 }
 
 void UGameInstance::Destroy()
@@ -168,7 +168,7 @@ void UGameInstance::ImguiInit()
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	ImGui_ImplWin32_Init(UKismetSystemLibrary::GetWindownsHWND());
-	ImGui_ImplDX11_Init(FRHI::RHIDX11_GetD3d11Device(), FRHI::RHIDX11_GetID3D11DeviceContext());
+	ImGui_ImplDX11_Init(FRHI::RHI_GetD3d11Device(), FRHI::RHI_GetID3D11DeviceContext());
 	io.Fonts->AddFontFromFileTTF("Assets/Font/MicrosoftYaqiHei.ttf", 16.f, NULL, io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
 
 	ImGuiStyle* style = &ImGui::GetStyle();
@@ -248,7 +248,6 @@ void UGameInstance::EngineLoadingPar()
 		ImGui::SetNextWindowSize(ImVec2((float)UKismetSystemLibrary::GetWinSize().X,(float)UKismetSystemLibrary::GetWinSize().Y));
 		//设置窗口为透明
 		ImGui::SetNextWindowBgAlpha(0);
-
 		//设置窗口的padding为0是图片控件充满窗口
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
 		//设置窗口为无边框
@@ -266,7 +265,7 @@ void UGameInstance::EngineLoadingPar()
 		ImGui::PopStyleVar(2);
 	}
 	);
-	FRHI::RHIDX11_ExecutePresent();
+	FRHI::RHI_ExecutePresent();
 }
 
 void UGameInstance::LoadEngineContentAssetsResource()
@@ -278,7 +277,7 @@ void UGameInstance::LoadEngineContentAssetsResource()
 		FString suffix;
 		if (UKismetStringLibrary::GetFileSuffix(Teamp[i], suffix))
 		{
-			Log_Info("Game Texture Resource Loading")
+			Log_Info("Engine Content Texture Resources Loading" + Teamp[i]); 
 			if (suffix == "png" || suffix == "jpg")
 			{
 					Texture::CreateTextureFromFile(Teamp[i]);

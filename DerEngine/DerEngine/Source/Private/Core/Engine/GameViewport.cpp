@@ -113,7 +113,7 @@ void UGameViewport::MoveViewport(int NewPosX, int NewPosY, int NewSizeX, int New
 	ViewportPos = FIntPoint(NewPosX, NewPosY);
 	ViewportSize = FIntPoint(NewSizeX, NewSizeY);
 	ViewportMidMaxDepth = FVector2D(MidDepth, MaxDepth);
-	FRHI::RHIDX11_UpdataViewPort(ViewportPos.X, ViewportPos.Y, ViewportSize.X, ViewportSize.Y, ViewportMidMaxDepth.X, ViewportMidMaxDepth.Y);
+	FRHI::RHI_UpdataViewPort(ViewportPos.X, ViewportPos.Y, ViewportSize.X, ViewportSize.Y, ViewportMidMaxDepth.X, ViewportMidMaxDepth.Y);
 }
 
 void UGameViewport::Destroy()

@@ -58,7 +58,7 @@ Texture* Texture::CreateTextureFromFile(const  FString& texFileName, bool bGener
 	if (SUCCEEDED(error))
 	{
 		auto meta = img->GetMetadata();
-		FRHI::RHIDX11_CreateShaderResourceView(img->GetImages(), img->GetImageCount(), meta, &tex->_srv);
+		FRHI::RHI_CreateShaderResourceView(img->GetImages(), img->GetImageCount(), meta, &tex->_srv);
 		if (bGenerateMips)
 		{
 
@@ -89,9 +89,9 @@ Texture* Texture::CreateTextureFromFile(const  FString& texFileName, bool bGener
 
 			tex = TextureManage::Get()->FindIndex(texDesc.texFileName);
 
-			FRHI::RHIDX11_CopySubresourceRegion(tex->_tex2D, 0, 0, 0, 0, resource, 0, NULL);
-			FRHI::RHIDX11_GenerateMips(tex->_srv);
-			FRHI::RHIDX11_Flush();
+			FRHI::RHI_CopySubresourceRegion(tex->_tex2D, 0, 0, 0, 0, resource, 0, NULL);
+			FRHI::RHI_GenerateMips(tex->_srv);
+			FRHI::RHI_Flush();
 			//#if _DEBUG
 			//			SaveTextureToDisk(tex->_id, Application::s_WorkspaceDirectory + "/DEBUG.png", false);
 			//#endif
@@ -155,7 +155,7 @@ void Texture::CreateWICTexture2DCubeFromFile(const std::vector<FString>& cubeMap
 	{
 
 		// 该资源用于GPU复制
-		FRHI::RHIDX11_CreateShaderResourceViewWIC(
+		FRHI::RHI_CreateShaderResourceViewWIC(
 			cubeMapFileNames[i],
 			(ID3D11Resource**)&srcTexVec[i],
 			(generateMips ? &srcTexSRVVec[i] : nullptr));
@@ -196,7 +196,7 @@ void Texture::CreateWICTexture2DCubeFromFile(const std::vector<FString>& cubeMap
 	texArrayDesc.MiscFlags = D3D11_RESOURCE_MISC_TEXTURECUBE;	// 允许从中创建TextureCube
 
 	ID3D11Texture2D* texArray = nullptr;
-	 FRHI::RHIDX11_CreateTexture2D (&texArrayDesc, nullptr, &texArray);
+	 FRHI::RHI_CreateTexture2D (&texArrayDesc, nullptr, &texArray);
 
 	if (!texArray)
 	{
@@ -220,7 +220,7 @@ void Texture::CreateWICTexture2DCubeFromFile(const std::vector<FString>& cubeMap
 	{
 		for (UINT j = 0; j < texArrayDesc.MipLevels; ++j)
 		{
-			FRHI::RHIDX11_CopySubresourceRegion(
+			FRHI::RHI_CopySubresourceRegion(
 				texArray,
 				D3D11CalcSubresource(j, i, texArrayDesc.MipLevels),
 				0, 0, 0,
@@ -241,7 +241,7 @@ void Texture::CreateWICTexture2DCubeFromFile(const std::vector<FString>& cubeMap
 		viewDesc.TextureCube.MostDetailedMip = 0;
 		viewDesc.TextureCube.MipLevels = texArrayDesc.MipLevels;
 
-		FRHI::RHIDX11_CreateShaderResourceView(texArray, &viewDesc, textureCubeView);
+		FRHI::RHI_CreateShaderResourceView(texArray, &viewDesc, textureCubeView);
 	}
 
 	// 检查是否需要纹理数组
@@ -340,7 +340,7 @@ int Texture::CreateCubemapFromFaceTextures(const std::vector<FString>& textureFi
 	// create the resource
 	ID3D11Texture2D* finalCubemapTexture=nullptr;
 	const D3D11_SUBRESOURCE_DATA* pData = bGenerateMips ? nullptr : pSubresourceData.data();
-	FRHI::RHIDX11_CreateTexture2D(&texDesc, pData, &finalCubemapTexture);
+	FRHI::RHI_CreateTexture2D(&texDesc, pData, &finalCubemapTexture);
 	if (!finalCubemapTexture)
 	{
 		Log_Error(FString("Cannot create cubemap texture: ") + split(textureFiles.front().GetString().c_str(), '_').front().c_str());
@@ -354,7 +354,7 @@ int Texture::CreateCubemapFromFaceTextures(const std::vector<FString>& textureFi
 	cubemapDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURECUBE;
 	cubemapDesc.TextureCube.MipLevels = texDesc.MipLevels;
 	cubemapDesc.TextureCube.MostDetailedMip = 0;
-	FRHI::RHIDX11_CreateShaderResourceView(finalCubemapTexture, &cubemapDesc, &cubeMapSRV);
+	FRHI::RHI_CreateShaderResourceView(finalCubemapTexture, &cubemapDesc, &cubeMapSRV);
 	if (!cubeMapSRV)
 	{
 		Log::Get()->Error(std::string("Cannot create Shader Resource View for ") + split(textureFiles.front().GetString().c_str(), '_').front());
@@ -364,13 +364,13 @@ int Texture::CreateCubemapFromFaceTextures(const std::vector<FString>& textureFi
 	if (bGenerateMips)
 	{
 		//https://www.gamedev.net/forums/topic/599837-dx11-createtexture2d-automatic-mips-initial-data/
-		FRHI::RHIDX11_GenerateMips(cubeMapSRV);
+		FRHI::RHI_GenerateMips(cubeMapSRV);
 		for (unsigned mip = 0; mip < mipLevels; ++mip)
 		{
 			for (int cubeMapFaceIndex = 0; cubeMapFaceIndex < FACE_COUNT; cubeMapFaceIndex++)
 			{
 				const size_t index = mip * FACE_COUNT + cubeMapFaceIndex;
-				 FRHI::RHIDX11_UpdateSubresource(
+				 FRHI::RHI_UpdateSubresource(
 					finalCubemapTexture, D3D11CalcSubresource(mip, cubeMapFaceIndex, mipLevels)
 					, nullptr //&box
 					, pSubresourceData[index].pSysMem			// data
@@ -492,7 +492,7 @@ Texture* Texture::CreateTexture2D(const TextureDesc& texDesc)
 		dataDesc.SysMemSlicePitch = texDesc.dataSlicePitch;
 		pDataDesc = &dataDesc;
 	}
-	FRHI::RHIDX11_CreateTexture2D(&desc, pDataDesc, &tex->_tex2D);
+	FRHI::RHI_CreateTexture2D(&desc, pDataDesc, &tex->_tex2D);
 
 #if defined(_DEBUG) || defined(PROFILE)
 
@@ -523,14 +523,14 @@ Texture* Texture::CreateTexture2D(const TextureDesc& texDesc)
 			srvDesc.TextureCubeArray.MipLevels = texDesc.mipCount;
 			srvDesc.TextureCubeArray.MostDetailedMip = 0;
 			srvDesc.TextureCubeArray.First2DArrayFace = 0;
-			FRHI::RHIDX11_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srv);
+			FRHI::RHI_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srv);
 		}
 		else
 		{
 			srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURECUBE;
 			srvDesc.TextureCube.MipLevels = texDesc.mipCount;
 			srvDesc.TextureCube.MostDetailedMip = 0;
-			FRHI::RHIDX11_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srv);
+			FRHI::RHI_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srv);
 		}
 #if _DEBUG
 		if (!texDesc.texFileName.Empty())
@@ -553,7 +553,7 @@ Texture* Texture::CreateTexture2D(const TextureDesc& texDesc)
 			{
 				srvDesc.Texture2DArray.FirstArraySlice = i;
 				srvDesc.Texture2DArray.ArraySize = desc.ArraySize - i;
-				FRHI::RHIDX11_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srvArray[i]);
+				FRHI::RHI_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srvArray[i]);
 				if (i == 0)
 					tex->_srv = tex->_srvArray[i];
 #if _DEBUG
@@ -577,7 +577,7 @@ Texture* Texture::CreateTexture2D(const TextureDesc& texDesc)
 				{
 					uavDesc.Texture2DArray.FirstArraySlice = i;
 					uavDesc.Texture2DArray.ArraySize = desc.ArraySize - i;
-					FRHI::RHIDX11_CreateUnorderedAccessView(tex->_tex2D, &uavDesc, &tex->_uavArray[i]);
+					FRHI::RHI_CreateUnorderedAccessView(tex->_tex2D, &uavDesc, &tex->_uavArray[i]);
 					if (i == 0)
 						tex->_uav = tex->_uavArray[i];
 				}
@@ -588,7 +588,7 @@ Texture* Texture::CreateTexture2D(const TextureDesc& texDesc)
 			srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
 			srvDesc.Texture2D.MipLevels = texDesc.mipCount;
 			srvDesc.Texture2D.MostDetailedMip = 0;
-			FRHI::RHIDX11_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srv);
+			FRHI::RHI_CreateShaderResourceView(tex->_tex2D, &srvDesc, &tex->_srv);
 
 			if (desc.BindFlags & D3D11_BIND_UNORDERED_ACCESS)
 			{
@@ -597,7 +597,7 @@ Texture* Texture::CreateTexture2D(const TextureDesc& texDesc)
 				uavDesc.ViewDimension = D3D11_UAV_DIMENSION_TEXTURE2D;
 				uavDesc.Texture2D.MipSlice = 0;
 
-				FRHI::RHIDX11_CreateUnorderedAccessView(tex->_tex2D, &uavDesc, &tex->_uav);
+				FRHI::RHI_CreateUnorderedAccessView(tex->_tex2D, &uavDesc, &tex->_uav);
 			}
 		}
 	}
@@ -719,7 +719,7 @@ TextureManage::TextureManage()
 		sampDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 		sampDesc.MinLOD = 0;
 		sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
-		FRHI::RHIDX11_CreateSamplerState(&sampDesc, LinerSamplerState_WRAP.GetAddressOf());
+		FRHI::RHI_CreateSamplerState(&sampDesc, LinerSamplerState_WRAP.GetAddressOf());
 	}
 
 	{
@@ -732,7 +732,7 @@ TextureManage::TextureManage()
 		sampDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 		sampDesc.MinLOD = 0;
 		sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
-		FRHI::RHIDX11_CreateSamplerState(&sampDesc, LinerSamplerState_Clamp.GetAddressOf());
+		FRHI::RHI_CreateSamplerState(&sampDesc, LinerSamplerState_Clamp.GetAddressOf());
 	}
 
 	{
@@ -745,7 +745,7 @@ TextureManage::TextureManage()
 		sampDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 		sampDesc.MinLOD = 0;
 		sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
-		FRHI::RHIDX11_CreateSamplerState(&sampDesc, PointSamplerState_WRAP.GetAddressOf());
+		FRHI::RHI_CreateSamplerState(&sampDesc, PointSamplerState_WRAP.GetAddressOf());
 	}
 
 	{
@@ -758,7 +758,7 @@ TextureManage::TextureManage()
 		//sampDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 		sampDesc.MinLOD = 0;
 		sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
-		FRHI::RHIDX11_CreateSamplerState(&sampDesc, PointSamplerState_Clamp.GetAddressOf());
+		FRHI::RHI_CreateSamplerState(&sampDesc, PointSamplerState_Clamp.GetAddressOf());
 	}
 	{
 		D3D11_SAMPLER_DESC sampDesc;
@@ -770,7 +770,7 @@ TextureManage::TextureManage()
 		sampDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 		sampDesc.MinLOD = 0;
 		sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
-		FRHI::RHIDX11_CreateSamplerState(&sampDesc, LinerSamplerState_NEVER.GetAddressOf());
+		FRHI::RHI_CreateSamplerState(&sampDesc, LinerSamplerState_NEVER.GetAddressOf());
 	}
 }
 
@@ -792,7 +792,7 @@ Texture::~Texture()
 
 bool Texture::InitializeTexture2D(const D3D11_TEXTURE2D_DESC& descriptor, bool initializeSRV)
 {
-	 FRHI::RHIDX11_CreateTexture2D(&descriptor, nullptr, &this->_tex2D);
+	 FRHI::RHI_CreateTexture2D(&descriptor, nullptr, &this->_tex2D);
 #if defined(_DEBUG)
 	if (!this->_name.Empty())
 	{
@@ -808,7 +808,7 @@ bool Texture::InitializeTexture2D(const D3D11_TEXTURE2D_DESC& descriptor, bool i
 		srvDesc.Format = descriptor.Format;
 		srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;	// array maybe? check descriptor.
 		srvDesc.Texture2D.MipLevels = descriptor.MipLevels;
-		FRHI::RHIDX11_CreateShaderResourceView(this->_tex2D, &srvDesc, &this->_srv);
+		FRHI::RHI_CreateShaderResourceView(this->_tex2D, &srvDesc, &this->_srv);
 #if defined(_DEBUG) 
 		if (!this->_name.Empty())
 		{

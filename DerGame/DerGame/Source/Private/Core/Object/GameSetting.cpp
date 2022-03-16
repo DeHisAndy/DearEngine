@@ -8,6 +8,7 @@
 #include "../../../../../../DerEngine/DerEngine/Source/Public/Core/GameMode/DearPawn.h"
 #include "../../../../../../DerEngine/DerEngine/Source/Public/Core/Render/ShaderEffect.h"
 #include "../../../Public/Core/World/ForwardRenderingWorld.h"
+#include "../../../Public/Core/World/DeferredRenderingWorld.h"
 
 
 
@@ -26,7 +27,7 @@ void UGameSetting::initializationProjectSetting()
 	Super::initializationProjectSetting();
 	ADearPawn* pawn = new ADearPawn();
 	pawn->SetupPlayerInputComponent(new UDearInputComponent());
-	UGamePlayStatics::SetGameInstance(new UGameInstance(new UForwardRenderingWorld(new AGameMode(nullptr, pawn))));
+	UGamePlayStatics::SetGameInstance(new UGameInstance(new UDeferredRenderingWorld(new AGameMode(nullptr, pawn))));
 }
 
 

@@ -229,7 +229,7 @@ void UPrimitiveComponent::InitBuffer()
 			InitData.pSysMem = arrayDaya[i].vertices.data();
 			this->VertexBuffer[i].strides = VertexNums;
 			this->VertexBuffer[i].cout = (unsigned int)arrayDaya[i].vertices.size();
-			FRHI::RHIDX11_CreateBuffer(&vbd, &InitData, &this->VertexBuffer[i].buffer);
+			FRHI::RHI_CreateBuffer(&vbd, &InitData, &this->VertexBuffer[i].buffer);
 
 
 			// ÉèÖÃË÷Òý»º³åÇøÃèÊö
@@ -244,7 +244,7 @@ void UPrimitiveComponent::InitBuffer()
 			InitData.pSysMem = arrayDaya[i].indices.data();
 			this->IndexBuffer[i].strides = sizeof(unsigned int);
 			this->IndexBuffer[i].cout = (unsigned int)IndexNums;
-			FRHI::RHIDX11_CreateBuffer(&ibd, &InitData, &this->IndexBuffer[i].buffer);
+			FRHI::RHI_CreateBuffer(&ibd, &InitData, &this->IndexBuffer[i].buffer);
 			Log_Info("Load Mesh Name= " + arrayDaya[i].name + "  Vertex num=" + FString::FormatIntToString(arrayDaya[i].vertices.size()) + "  index number=" + FString::FormatIntToString(arrayDaya[i].indices.size()));
 		}
 }

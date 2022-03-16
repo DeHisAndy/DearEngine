@@ -7,14 +7,14 @@
 #include "..\..\..\Public\Core\Object\Object\TextureManage.h"
 
 
-void UKismetRenderLibrary::RHIDX11_DrawMatrialToRenderTarget(ID3D11RenderTargetView* ppRenderTargetViews, const FString& matrial, const FString& texture2D, UPrimitiveComponent* mesh)
+void UKismetRenderLibrary::RHI_DrawMatrialToRenderTarget(ID3D11RenderTargetView* ppRenderTargetViews, const FString& matrial, const FString& texture2D, UPrimitiveComponent* mesh)
 {
 	//安全判断
 	if (mesh&&CheckShaderValid(matrial))
 	{
 		//清理渲染画布
-		FRHI::RHIDX11_ClearSwapChainRTVAndDSV(FVector4D(0.f, 0.f, 0.f, 1.f));
-		FRHI::RHIDX11_SetSwapChainRenderTargetAndDepthStencilView();
+		FRHI::RHI_ClearSwapChainRTVAndDSV(FVector4D(0.f, 0.f, 0.f, 1.f));
+		FRHI::RHI_SetSwapChainRenderTargetAndDepthStencilView();
 
 		AActor* meshActor = new AActor();
 		TArray<UPrimitiveComponent::FMeshPrimitiveComponent> arrayData;
@@ -30,7 +30,7 @@ void UKismetRenderLibrary::RHIDX11_DrawMatrialToRenderTarget(ID3D11RenderTargetV
 		//DrawCall
 		meshActor->Draw(0.f);
 
-		FRHI::RHIDX11_ExecutePresent();
+		FRHI::RHI_ExecutePresent();
 
  		delete meshActor;
  		meshActor = nullptr;
@@ -44,7 +44,7 @@ void UKismetRenderLibrary::RHIDX11_DrawMatrialToRenderTarget(ID3D11RenderTargetV
 
 bool UKismetRenderLibrary::CheckShaderValid(const FString& matrialName)
 {
-	UShaderCompilerWorker* shaderMode = FRHI::RHIDX11_GetShaderCompilerWorker();
+	UShaderCompilerWorker* shaderMode = FRHI::RHI_GetShaderCompilerWorker();
 	if (shaderMode)
 	{
 		TArray<FString>& allShader = shaderMode->GetShaderArry();

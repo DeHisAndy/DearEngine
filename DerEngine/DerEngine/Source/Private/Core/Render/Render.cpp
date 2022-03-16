@@ -34,13 +34,13 @@ void FRender::Init()
 void FRender::BeginPaly()
 {
 	Log_Info("Set DrawMode D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST");
-	FRHI::RHIDX11_SetPrimitiveTopology();
+	FRHI::RHI_SetPrimitiveTopology();
 	Log_Info("RenderThread BeginPaly")
 }
 
 void FRender::OnResize()
 {
-	if (FRHI::RHIDX11_GetRenderStart())
+	if (FRHI::RHI_GetRenderStart())
 	{
 		assert(GetD3DInterface().D3D11ImmediateContext);
 		assert(GetD3DInterface().D3D11Device);
@@ -95,7 +95,7 @@ void FRender::OnResize()
 
 
 		// 将渲染目标视图和深度/模板缓冲区结合到管线
-		FRHI::RHIDX11_SetRenderTargetsAndDepthStencilView(GetD3DInterface().m_pRenderTargetView.GetAddressOf(), GetD3DInterface().m_pDepthStencilView.Get());
+		FRHI::RHI_SetRenderTargetsAndDepthStencilView(GetD3DInterface().m_pRenderTargetView.GetAddressOf(), GetD3DInterface().m_pDepthStencilView.Get());
 
 	}
 }

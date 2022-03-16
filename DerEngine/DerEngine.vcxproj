@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DerEngine\Source\Public\Core\Delegates\Delegate.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Engine\CoreTypes.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\Engine\Game.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\Engine\GameViewport.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\FunctionLibrary\GamePlayStatics.h" />

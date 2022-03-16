@@ -47,7 +47,7 @@ void UShaderEffect::CompileHlSL()
 		// Message contains "This is a big test"
 		FString xx = Teamp[i];
 		ComPtr<ID3DBlob> error;
-		HR(D3DX11CompileEffectFromFile(*xx, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, dwShaderFlags, 0, FRHI::RHIDX11_GetD3d11Device(), &effectShader->Effect, &error));
+		HR(D3DX11CompileEffectFromFile(*xx, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, dwShaderFlags, 0, FRHI::RHI_GetD3d11Device(), &effectShader->Effect, &error));
 		Log_Info("Compile shader = " + Teamp[i]);
 		//º”‘ÿª∫¥Ê
 // 			{

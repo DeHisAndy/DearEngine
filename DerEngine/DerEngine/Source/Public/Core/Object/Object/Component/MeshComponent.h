@@ -23,10 +23,16 @@ public:
 	virtual	void SetScalarParameterValue(const FString& shaderVariableName, float value)override;
 	virtual	void SetTextureParameterValue(const FString& shaderVariableName, const Texture* texture)override;
 	virtual	void SetSamplerParameterValue(const FString& shaderVariableName, ID3D11SamplerState* sampler)override;
+	virtual void SetDepthStencilState(ID3D11DepthStencilState* pDepthStencilState, UINT StencilRef = 0)override;
+	virtual void SetRasterizerState(ID3D11RasterizerState* pRasterizerState)override;
+	virtual void RenderStat();
 protected:
 #ifdef  SHADER_DIRECTX11_EFFECT
 	ComPtr < ID3DX11Effect> Effect;
 	ComPtr < ID3DX11EffectTechnique> EffectTechnique;
+	ComPtr<ID3D11RasterizerState> RasterizerState;
+	ComPtr<ID3D11DepthStencilState> DepthStencilState;
+	int DepthStencilStateStencilRef;
 #endif
 
 };

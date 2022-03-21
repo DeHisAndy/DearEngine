@@ -83,6 +83,18 @@ void UPrimitiveComponent::SetSamplerParameterValue(const FString& shaderVariable
 
 }
 
+
+void UPrimitiveComponent::SetDepthStencilState(ID3D11DepthStencilState* pDepthStencilState, UINT StencilRef /*= 0*/)
+{
+
+}
+
+
+void UPrimitiveComponent::SetRasterizerState(ID3D11RasterizerState* pRasterizerState)
+{
+
+}
+
 void UPrimitiveComponent::ImportModel(const FString& modelPath)
 {
 	meshPathName = modelPath;

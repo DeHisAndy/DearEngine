@@ -113,5 +113,8 @@
     <None Include="Assets\Shaders\Public\Light\ForwardRenderingLight.usf">
       <Filter>Source\Shaders\Public\Light</Filter>
     </None>
+    <None Include="Assets\Shaders\Public\SkyBox.usf">
+      <Filter>Source\Shaders\Public</Filter>
+    </None>
   </ItemGroup>
 </Project>

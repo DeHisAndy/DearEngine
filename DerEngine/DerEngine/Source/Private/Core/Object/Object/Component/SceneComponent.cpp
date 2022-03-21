@@ -97,7 +97,7 @@ void USceneComponent::SetComponentLocation(FVector NewLocation)
 
 void USceneComponent::AddComponentRotation(FRotator DeltaRotation)
 {
-	const FQuat NewWorldRotation = DeltaRotation.Quaternion() * GetComponentTransform().GetRotation();
+	const FQuat NewWorldRotation = GetComponentTransform().GetRotation()*DeltaRotation.Quaternion();
 	SetComponentRotation(NewWorldRotation);
 }
 

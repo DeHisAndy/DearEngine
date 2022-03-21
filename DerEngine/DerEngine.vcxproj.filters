@@ -141,6 +141,9 @@
     <Filter Include="Source\Public\Core\Object\Object\Component\Light">
       <UniqueIdentifier>{9fd50703-ef36-4c97-90f3-c54c6b72fb2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Public\ThirdParty\SMath">
+      <UniqueIdentifier>{06012ed6-22ed-4b71-9a8b-505c01df9276}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DerEngine\Source\Public\Core\Delegates\Delegate.h">

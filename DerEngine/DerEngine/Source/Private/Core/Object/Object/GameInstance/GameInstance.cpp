@@ -272,16 +272,13 @@ void UGameInstance::LoadEngineContentAssetsResource()
 {
 	TArray<FString> Teamp;
 	FFileHelper::FindFiles("Assets/Content", ".*", Teamp);
+	Log_Info("Engine Content Texture Resources Loading");
 	for (int i=0;i< Teamp.size();i++)
 	{
 		FString suffix;
 		if (UKismetStringLibrary::GetFileSuffix(Teamp[i], suffix))
-		{
-			Log_Info("Engine Content Texture Resources Loading" + Teamp[i]); 
-			if (suffix == "png" || suffix == "jpg")
-			{
-					Texture::CreateTextureFromFile(Teamp[i]);
-			}
+		{	
+			Texture::CreateTextureFromFile(Teamp[i]);
 		}
 	}
 

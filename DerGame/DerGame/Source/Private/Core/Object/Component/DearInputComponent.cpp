@@ -87,8 +87,19 @@ void UDearInputComponent::Key_ESC()
 
 void UDearInputComponent::MousePre()
 {
-	ImGuiIO& io = ImGui::GetIO();
-	UGamePlayStatics::GetPlayerPawn()->AddActorRotation(FRotator(io.MouseDelta.x * -0.05f, 0, io.MouseDelta.y * -0.05f));
+	switch (mouseMode)
+	{
+	case M_UI:
+		break;
+	case M_3D:
+		UGamePlayStatics::GetPlayerPawn()->AddActorRotation(FRotator(ImGui::GetIO().MouseDelta.x * -0.05f, 0, ImGui::GetIO().MouseDelta.y * -0.05f));
+		break;
+	case M_OVER:
+		break;
+	default:
+		break;
+	}
+
 // 	UGamePlayStatics::GetPlayerPawn()->AddControllerPitchInput(io.MouseDelta.x* 0.05f);
 // 	UGamePlayStatics::GetPlayerPawn()->AddControllerRollInput(io.MouseDelta.y* 0.05f);
 }

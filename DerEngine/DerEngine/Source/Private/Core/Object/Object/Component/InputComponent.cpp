@@ -19,7 +19,14 @@ void UInputComponent::BeginPlay()
 
 void UInputComponent::Tick(float DeltaSeconds)
 {
-
+	if (ImGui::IsAnyItemActive())
+	{
+		mouseMode = MouseAxisStat::M_UI;
+	}
+	else
+	{
+		mouseMode = MouseAxisStat::M_3D;
+	}
 	switch (inputMode)
 	{
 	case IE_GameAndUI:

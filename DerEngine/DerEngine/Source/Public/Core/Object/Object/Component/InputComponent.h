@@ -62,6 +62,12 @@ struct FInputAxisBinding
 	EInputEvent   key;
 	TBaseVoidDelegate delegate;
 };
+enum MouseAxisStat
+{
+	M_UI=0,
+	M_3D=1,
+	M_OVER=2,
+};
 
 class UInputComponent : public UActorComponent
 {
@@ -82,5 +88,7 @@ public:
 private:
 	TArray<FInputActionBinding> bindKeyInputArray;
 	TArray<FInputAxisBinding> bindMouseInputArray;
+protected:
 	EGameInputMode inputMode;
+	MouseAxisStat mouseMode;
 };

@@ -7,6 +7,7 @@
 #include "..\..\..\..\Public\ThirdParty\Stb\stb_image.h"
 #include<utility>
 #include <array>
+#include "..\..\..\Core\FunctionLibrary\KismetStringLibrary.h"
 TextureManage* TextureManage::Instance = nullptr;
 std::vector<std::string> split(const char* s, char c)
 {
@@ -46,7 +47,24 @@ Texture* Texture::CreateTextureFromFile(const  FString& texFileName, bool bGener
 	{
 		return (found->second);
 	}
-	const FString path =texFileName;
+	//获取文件后缀
+	FString suffix;
+	if (!UKismetStringLibrary::GetFileSuffix(texFileName, suffix))
+	{
+		Log_Error(texFileName + "The text format is incorrect");
+		return nullptr;
+	}
+	//引擎暂时支持的图片格式
+	if (suffix == TEXT("png") || suffix == TEXT("jpg")||suffix == TEXT("hdr") || suffix == TEXT("HDR"))
+	{
+		if (suffix == "hdr" || suffix == "HDR")
+		{
+			//加载HDR图
+			return CreateHDRTexture(texFileName);
+		}
+	}
+	//加载png和jpg图片
+	const FString path = texFileName;
 #if _DEBUG
 
 #endif
@@ -399,7 +417,7 @@ int Texture::CreateCubemapFromFaceTextures(const std::vector<FString>& textureFi
 	return cubemapOut->_id;
 }
 
-Texture* Texture::CreateHDRTexture(FString& texFileName, FString& fileRoot)
+Texture* Texture::CreateHDRTexture(const FString& texFileName)
 {
 	// cache lookup, return early if the texture already exists
 	auto& mTextures = TextureManage::Get()->GetArray();
@@ -409,7 +427,7 @@ Texture* Texture::CreateHDRTexture(FString& texFileName, FString& fileRoot)
 		return (found->second);
 	}
 
-	FString path = fileRoot + texFileName;
+	FString path =texFileName;
 	int width = 0;
 	int height = 0;
 	int numComponents = 0;
@@ -441,14 +459,19 @@ Texture* Texture::CreateHDRTexture(FString& texFileName, FString& fileRoot)
 	return newTex;
 }
 
+
+
 Texture* Texture::CreateTexture2D(const TextureDesc& texDesc)
 {
+	
 	auto& mTextures = TextureManage::Get()->GetArray();
 	auto found = mTextures.find(texDesc.texFileName);
 	if (found != mTextures.end())
 	{
 		return (found->second);
 	}
+
+
 	Texture* tex = new Texture;
 	tex->_width = texDesc.width;
 	tex->_height = texDesc.height;

@@ -13,6 +13,8 @@ public:
 	virtual void Draw(float DeltaSeconds);
 	virtual void Destroy();
 public:
+	static AActor* SpawnActor();
+public:
 	void AddActorOffset(FVector DeltaLocation);
 	void AddActorRotation(FRotator DeltaRotation);
 	void AddActorScale3D(FVector DeltaRotation);
@@ -35,7 +37,7 @@ public:
 	class USceneComponent* GetActorRootComponent();
 	bool IsVisible();
 	void SetActorVisible(bool bInVisible);
-	class UWorld* GetWorld();
+	static class UWorld* GetWorld();
 private:
 	void AddActorChildComponent(class USceneComponent* component);
 public:

@@ -11,12 +11,10 @@ public:
 public:
 	virtual void BeginPlay();
 	virtual void Tick(float DeltaSeconds);
-	virtual void Draw(float DeltaSeconds);
+	virtual void Draw();
 	virtual void BeginDestroy();
 	virtual void OnRegister();
 	virtual void OnUnregister();
 private:
 	virtual void ImportModel(const  FString& modelPath);
-public:
-	void Draw();
 };

@@ -14,6 +14,7 @@
 #include "../../../../../../DerEngine/DerEngine/Source/Public/Core/FunctionLibrary/KismetRenderLibrary.h"
 #include "../../../Public/Core/UI/DearImgui.h"
 #include "../../../Core/Object/Object/Component/AssimpPrimitiveComponent.h"
+#include "../../../Core/Render/RenderState.h"
 
 
 UDeferredRenderingWorld::UDeferredRenderingWorld()
@@ -62,26 +63,35 @@ void UDeferredRenderingWorld::Destroy()
 
 void UDeferredRenderingWorld::InitWorld()
 {
+	Log_Info("UDeferredRenderingWorld::InitWorld");
 	//»æÖÆUI
- 	UWidget::CreateWidget(new UDearImgui(), 0);
+	UWidget::CreateWidget(new UDearImgui(), 0);
+	//¼ÓÔØSkyBox
 	{
-		AActor* meshActor = new AActor();
+		AActor* skyBox = AActor::SpawnActor();
+		UAssimpPrimitiveComponent* assetComponent = new UAssimpPrimitiveComponent("Assets/Content/Mesh/SkyBox.FBX", "Assets/Shaders/Public/SkyBox.usf");
+		assetComponent->SetDepthStencilState(FRenderState::DSSSkyBox, 0);
+		assetComponent->SetRasterizerState(FRenderState::RSDefaultForword);
+		skyBox->AddAttachComponent(assetComponent);
+	}
+	{
+		AActor* meshActor = AActor::SpawnActor();
 		UAssimpPrimitiveComponent* assetComponent = new UAssimpPrimitiveComponent("Assets/Content/Mesh/DamagedHelmet.fbx", "Assets/Shaders/Public/VSShader.usf");
 		assetComponent->SetTextureParameterValue("baseColor", Texture::CreateTextureFromFile(FString("Assets/Content/Texture/Default_albedo.jpg")));
 		assetComponent->SetSamplerParameterValue("pointSample_WRAP", TextureManage::PointSamplerState_WRAP.Get());
 		assetComponent->SetComponentScale3D(FVector(0.01f, 0.01f, 0.01f));
+		assetComponent->AddComponentOffset(FVector(-5, 0, 0));
 		meshActor->AddAttachComponent(assetComponent);
-		this->AddActorToWorld(meshActor);
+
 	}
 	{
-		AActor* meshActor = new AActor();
+		AActor* meshActor = AActor::SpawnActor();
 		UAssimpPrimitiveComponent* assetComponent = new UAssimpPrimitiveComponent("Assets/Content/Mesh/DamagedHelmet.fbx", "Assets/Shaders/Public/VSShader.usf");
 		assetComponent->SetTextureParameterValue("baseColor", Texture::CreateTextureFromFile(FString("Assets/Content/loading/Loading.png")));
 		assetComponent->SetSamplerParameterValue("pointSample_WRAP", TextureManage::PointSamplerState_WRAP.Get());
 		assetComponent->SetComponentScale3D(FVector(0.01f, 0.01f, 0.01f));
 		assetComponent->AddComponentOffset(FVector(5, 0, 0));
 		meshActor->AddAttachComponent(assetComponent);
-		this->AddActorToWorld(meshActor);
 	}
 }
 

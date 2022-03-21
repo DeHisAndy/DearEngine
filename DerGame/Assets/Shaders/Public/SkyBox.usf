@@ -1,0 +1,56 @@
+
+matrix g_World; // matrix可以用float4x4替代。不加row_major的情况下，矩阵默认为列主矩阵，
+matrix g_View;  // 可以在前面添加row_major表示行主矩阵
+matrix g_Proj;  // 该教程往后将使用默认的列主矩阵，但需要在C++代码端预先将矩阵进行转置。
+
+struct VS_INPUT
+{
+    float3 pos : POSITION;
+    float4 color: COLOR;
+	float3 normal:NORMAL;
+	float4 tangent:TANGENT;
+	float2 uv:UV;
+		
+};
+struct VS_OUTPUT
+{
+    float4 pos: SV_POSITION;
+    float4 locatione:POS;
+    float2 uv:MESHUV;
+};
+
+
+
+
+VS_OUTPUT VS(VS_INPUT input)
+{
+    VS_OUTPUT vOut;
+    vOut.pos = mul(float4(input.pos, 1.0f), g_World);  // mul 才是矩阵乘法, 运算符*要求操作对象为
+    vOut.pos = mul(vOut.pos, g_View);               // 行列数相等的两个矩阵，结果为
+    vOut.pos = mul(vOut.pos, g_Proj);               // Cij = Aij * Bij
+    vOut.locatione = vOut.pos;              
+    vOut.pos=vOut.pos.xyww;
+    vOut.uv = input.uv;                         // 这里alpha通道的值默认为1.0
+    return vOut;
+}
+
+float4 PS(VS_OUTPUT input) : SV_TARGET
+{
+    return float4(1.0f,0.f,0.f,1.0);
+}
+
+technique11 BasicTech
+{
+	pass P0
+
+	{
+
+		SetVertexShader(CompileShader(vs_5_0, VS()));
+
+		SetGeometryShader(NULL);
+
+		SetPixelShader(CompileShader(ps_5_0, PS()));
+
+	}
+
+}

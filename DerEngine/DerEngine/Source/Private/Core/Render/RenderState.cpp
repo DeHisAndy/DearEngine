@@ -29,82 +29,7 @@ ID3D11DepthStencilState* FRenderState::DSSSkyBox = nullptr;
 
 FRenderState::~FRenderState()
 {
-	if (RSWireframe)
-	{
-		RSWireframe->Release();
-	}
-	if (RSNoCull)
-	{
-		RSNoCull->Release();
-	}
-	if (SSLinearWrap)
-	{
-		SSLinearWrap->Release();
-	}
-	if (SSAnistropicWrap)
-	{
-		SSAnistropicWrap->Release();
-	}
-	if (BSNoColorWrite)
-	{
-		BSNoColorWrite->Release();
-	}
-	if (BSTransparent)
-	{
-		BSTransparent->Release();
-	}
-	if (BSAlphaToCoverage)
-	{
-		BSAlphaToCoverage->Release();
-	}
-
-	if (BSAdditive)
-	{
-		BSAdditive->Release();
-	}
-
-	if (DSSWriteStencil)
-	{
-		DSSWriteStencil->Release();
-	}
-
-	if (DSSDrawWithStencil)
-	{
-		DSSDrawWithStencil->Release();
-	}
-
-	if (DSSNoDoubleBlend)
-	{
-		DSSNoDoubleBlend->Release();
-	}
-
-	if (DSSNoDepthTest)
-	{
-		DSSNoDepthTest->Release();
-	}
-
-	if (DSSNoDepthWrite)
-	{
-		DSSNoDepthWrite->Release();
-	}
-
-	if (DSSNoDepthTestWithStencil)
-	{
-		DSSNoDepthTestWithStencil->Release();
-	}
-
-	if (DSSNoDepthWriteWithStencil)
-	{
-		DSSNoDepthWriteWithStencil->Release();
-	}
-	if (DSSSkyBox)
-	{
-		DSSSkyBox->Release();
-	}
-	if (RSDefaultForword)
-	{
-		RSDefaultForword->Release();
-	}
+	
 }
 
 bool FRenderState::IsInit()
@@ -292,6 +217,87 @@ void FRenderState::Init(ID3D11Device* device)
 		dsDesc.BackFace.StencilFunc = D3D11_COMPARISON_EQUAL;
 
 		HR(device->CreateDepthStencilState(&dsDesc, &DSSNoDepthWriteWithStencil));
+	}
+}
+
+
+void FRenderState::Destroy()
+{
+	if (RSWireframe)
+	{
+		RSWireframe->Release();
+	}
+	if (RSNoCull)
+	{
+		RSNoCull->Release();
+	}
+	if (SSLinearWrap)
+	{
+		SSLinearWrap->Release();
+	}
+	if (SSAnistropicWrap)
+	{
+		SSAnistropicWrap->Release();
+	}
+	if (BSNoColorWrite)
+	{
+		BSNoColorWrite->Release();
+	}
+	if (BSTransparent)
+	{
+		BSTransparent->Release();
+	}
+	if (BSAlphaToCoverage)
+	{
+		BSAlphaToCoverage->Release();
+	}
+
+	if (BSAdditive)
+	{
+		BSAdditive->Release();
+	}
+
+	if (DSSWriteStencil)
+	{
+		DSSWriteStencil->Release();
+	}
+
+	if (DSSDrawWithStencil)
+	{
+		DSSDrawWithStencil->Release();
+	}
+
+	if (DSSNoDoubleBlend)
+	{
+		DSSNoDoubleBlend->Release();
+	}
+
+	if (DSSNoDepthTest)
+	{
+		DSSNoDepthTest->Release();
+	}
+
+	if (DSSNoDepthWrite)
+	{
+		DSSNoDepthWrite->Release();
+	}
+
+	if (DSSNoDepthTestWithStencil)
+	{
+		DSSNoDepthTestWithStencil->Release();
+	}
+
+	if (DSSNoDepthWriteWithStencil)
+	{
+		DSSNoDepthWriteWithStencil->Release();
+	}
+	if (DSSSkyBox)
+	{
+		DSSSkyBox->Release();
+	}
+	if (RSDefaultForword)
+	{
+		RSDefaultForword->Release();
 	}
 }
 

@@ -112,7 +112,9 @@ void FRender::Draw(float DeltaSeconds)
 
 void FRender::Destroy()
 {
+	FRenderState::Destroy();
 	Log_Info("RenderThread Destroy");
+
 }
 
 void FRender::InitDirect3D()

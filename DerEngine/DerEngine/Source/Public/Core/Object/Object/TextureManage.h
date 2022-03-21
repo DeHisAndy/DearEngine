@@ -100,10 +100,11 @@ public:
 	bool InitializeTexture2D(const D3D11_TEXTURE2D_DESC& descriptor, bool initializeSRV);
 public:
 	static  Texture* CreateTexture2D(const TextureDesc& texDesc);
+	static  Texture* CreateHDRTexture(const FString& texFileName);
 	static Texture* CreateTextureFromFile(const  FString& texFileName, bool bGenerateMips = false /*= false*/);
 	static void CreateWICTexture2DCubeFromFile(const std::vector<FString>& cubeMapFileNames, ID3D11Texture2D** textureArray, ID3D11ShaderResourceView** textureCubeView, bool generateMips = false);
 	static int CreateCubemapFromFaceTextures(const std::vector<FString>& textureFiles, bool bGenerateMips, unsigned mipLevels = 1);
-	static  Texture* CreateHDRTexture(FString& texFileName, FString& fileRoot);
+
 private:
 	void Release();
 public:

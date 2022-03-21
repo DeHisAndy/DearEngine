@@ -273,16 +273,16 @@ void UAssimpPrimitiveComponent::BeginPlay()
 void UAssimpPrimitiveComponent::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+}
+	
+void UAssimpPrimitiveComponent::Draw()
+{
 	FMatrix g_world = GetComponentWorldTransform().ToMatrixWithScale();
 	FMatrix g_View = UGamePlayStatics::GetPlayerPawn()->GetActorTransform().ToMatrixWithScale().Inverse();
 	FMatrix g_Proj = UGamePlayStatics::GetGameViewport()->GetPerspectiveMatirx();
 	SetMaterixParameterValue("g_World", g_world);
 	SetMaterixParameterValue("g_View", g_View);
 	SetMaterixParameterValue("g_Proj", g_Proj);
-}
-
-void UAssimpPrimitiveComponent::Draw(float DeltaSeconds)
-{
 	Super::Draw();
 }
 
@@ -329,9 +329,3 @@ void UAssimpPrimitiveComponent::ImportModel(const FString& modelPath)
 	}
 
 }
-
-void UAssimpPrimitiveComponent::Draw()
-{
-	Super::Draw();
-}
-

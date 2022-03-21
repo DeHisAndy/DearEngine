@@ -2,10 +2,13 @@
 #include "../../../Core/Render/ShaderEffect.h"
 #include "../../../Core/Render/RHI.h"
 #include "../../../Core/Object/Object/TextureManage.h"
+#include "../../../Core/Render/RenderState.h"
 
 UMeshComponent::UMeshComponent()
 {
-
+	RasterizerState = FRenderState::RSDefault;
+	DepthStencilState = FRenderState::DSSWriteStencil;
+	DepthStencilStateStencilRef = 0;
 }
 
 UMeshComponent::~UMeshComponent()
@@ -16,6 +19,8 @@ UMeshComponent::~UMeshComponent()
 void UMeshComponent::Draw()
 {
 	Super::Draw();
+	//…Ë÷√π‹œﬂ‰÷»æ◊¥Ã¨
+	RenderStat();
 #ifdef  SHADER_DIRECTX11_EFFECT
 	for (unsigned int i = 0; i < GetMeshCout(); i++)
 	{
@@ -98,7 +103,7 @@ void UMeshComponent::SetVectorParameterValue(const FString& shaderVariableName, 
 #endif
 }
 
-void UMeshComponent::SetBoolParameterValue(const FString& shaderVariableName, bool value)
+void UMeshComponent::SetBoolParameterValue(const FString& shaderVariableName, bool value) 
 {
 #ifdef  SHADER_DIRECTX11_EFFECT
 	Effect->GetVariableByName(shaderVariableName.GetString().c_str())->AsScalar()->SetBool(value);
@@ -145,4 +150,22 @@ void UMeshComponent::SetSamplerParameterValue(const FString& shaderVariableName,
 		Log_Error("SetSamplerParameterValue sampler==null ");
 	}
 #endif
+}
+
+void UMeshComponent::SetDepthStencilState(ID3D11DepthStencilState* pDepthStencilState, UINT StencilRef /*= 0*/)
+{
+	DepthStencilState = pDepthStencilState;
+	DepthStencilStateStencilRef = StencilRef;
+	
+}
+
+void UMeshComponent::SetRasterizerState(ID3D11RasterizerState* pRasterizerState)
+{
+	RasterizerState = pRasterizerState;	
+}
+
+void UMeshComponent::RenderStat()
+{
+	FRHI::RHI_GetID3D11DeviceContext()->OMSetDepthStencilState(DepthStencilState.Get(), DepthStencilStateStencilRef);
+	FRHI::RHI_GetID3D11DeviceContext()->RSSetState(RasterizerState.Get());
 }

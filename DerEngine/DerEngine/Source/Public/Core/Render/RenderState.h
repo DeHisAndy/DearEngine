@@ -14,6 +14,7 @@ public:
 public:
 	static bool IsInit();
 	static void Init(ID3D11Device* device);
+	static void Destroy();
 	static	ID3D11RasterizerState* GetModeRenderState(RenderModeEnum mode);
 public:
 

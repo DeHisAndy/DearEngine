@@ -2,6 +2,8 @@
 #include "../../../../Public/Core/Object/Object/Component/SceneComponent.h"
 #include "../../../../Public/Core/FunctionLibrary/KismetSystemLibrary.h"
 #include "../../../Core/FunctionLibrary/GamePlayStatics.h"
+#include "../../../Core/Object/Object/World/World.h"
+
 
 
 AActor::AActor()
@@ -54,6 +56,20 @@ void AActor::Draw(float DeltaSeconds)
 void AActor::Destroy()
 {
 	U_RootComponent->BeginDestroy();
+}
+
+
+AActor* AActor::SpawnActor()
+{
+	AActor* actor = new AActor();
+	if (!actor)
+	{
+		Log_Error("SpawnActor Fial");
+		return nullptr;
+	}
+	Log_Info("SpawnActor name=" + actor->GetObjectName());
+	GetWorld()->AddActorToWorld(actor);
+	return actor;
 }
 
 void AActor::AddActorOffset(FVector DeltaLocation)
@@ -207,4 +223,3 @@ class UWorld* AActor::GetWorld()
 {
 	return UGamePlayStatics::GetWorld();
 }
-

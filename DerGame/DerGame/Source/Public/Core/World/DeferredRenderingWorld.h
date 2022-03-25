@@ -12,8 +12,10 @@ public:
 	virtual void UpdateScene(float DeltaSeconds);
 	virtual void DrawScene(float DeltaSeconds);
 	virtual void Destroy();
-private:
-	//初始化场景组件
-	void InitWorld();
+protected:
+	//初始化场景时候加载
+	virtual	void PostCreateWorld() override;
+	//场景初始化完 创建场景组件
+	virtual	void LoadWorld()override;
 
 };

@@ -17,7 +17,7 @@ void APlayerController::Tick(float DeltaSeconds)
 {
 }
 
-void APlayerController::Draw(float DeltaSeconds)
+void APlayerController::Draw( )
 {
 
 }

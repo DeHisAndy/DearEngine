@@ -1,6 +1,7 @@
 #pragma once
 #include "RenderBase.h"
 
+
 class FRender :public FRenderBase
 {
 public:
@@ -16,9 +17,13 @@ public:
 public:
 	void InitDirect3D();
 	bool GetRenderStart();
+public:
+	class FRHIRenderPassInfo* GetRenderPassInfo();
 private:
 	bool m_Enable4xMsaa;
 	// 检测 MSAA支持的质量等级
 	unsigned int m_4xMsaaQuality;
 	bool F_RenderStart;
+protected:
+	class FRHIRenderPassInfo* rhiRenderPassInfo;
 };

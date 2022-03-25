@@ -1,3 +1,4 @@
+#pragma once
 #include "../Vector/Vector4D.h"
 #include "Render.h"
 #include "../../ThirdParty/DirectXTex/DirectXTex/DirectXTex.h"
@@ -24,6 +25,7 @@ public:
     static ID3D11RenderTargetView* RHI_GetSwapChainRTV();
     static ID3D11RenderTargetView** RHI_GetSwapChainRTVAddress();
     static class  UShaderCompilerWorker* RHI_GetShaderCompilerWorker();
+    static class  FRHIRenderPassInfo* RHI_GetRenderPassInfo();
     static bool RHI_GetRenderStart();
     static void RHI_DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation);
     static void RHI_CreateBuffer(const D3D11_BUFFER_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData, ID3D11Buffer** ppBuffe);
@@ -38,6 +40,11 @@ public:
 	static void RHI_GenerateMips(ID3D11ShaderResourceView* pShaderResourceView);
 	static void RHI_Flush();
     static void RHI_SwapChainResize();
-    static void RHI_SetRenderTargets(ID3D11RenderTargetView* const* ppRenderTargetViews);
+    static void RHI_SetRenderTargets(ID3D11RenderTargetView* const* ppRenderTargetViews); 
+	//创建cubeMap资源
+	static	void CreateTexture2DCubeFromArray(unsigned int Width, unsigned int height,ID3D11ShaderResourceView** m_pDynamicCubeMapSRV,
+		ComPtr<ID3D11RenderTargetView>* m_pDynamicCubeMapRTVs,/* ComPtr<ID3D11DepthStencilView>& m_DSV,*/ DXGI_FORMAT Format = DXGI_FORMAT_R16G16B16A16_FLOAT);
+	static DirectX::XMMATRIX CaptureScene(XMFLOAT3 pos, D3D11_TEXTURECUBE_FACE face, ComPtr<ID3D11RenderTargetView>& m_pDynamicCubeMapRTVs,
+		unsigned int ViewPortSize_X = 512, unsigned int ViewPortSize_Y = 512);
     //	static FRender::D3D11Struct& GetD3DInterface();
 };

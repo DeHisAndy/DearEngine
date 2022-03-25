@@ -105,16 +105,19 @@
     <FxCompile Include="Assets\Shaders\Public\DrawTexture.usf">
       <Filter>Source\Shaders\Public</Filter>
     </FxCompile>
+    <FxCompile Include="Assets\Shaders\Public\SkyBox.usf">
+      <Filter>Source\Shaders\Public</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\Public\HdrConverCubeMap.usf">
+      <Filter>Source\Shaders\Public</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\Private\UE_BRDF.ush">
+    <None Include="Assets\Shaders\Private\UE_BxDF.ush">
       <Filter>Source\Shaders\Private</Filter>
     </None>
     <None Include="Assets\Shaders\Public\Light\ForwardRenderingLight.usf">
       <Filter>Source\Shaders\Public\Light</Filter>
-    </None>
-    <None Include="Assets\Shaders\Public\SkyBox.usf">
-      <Filter>Source\Shaders\Public</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -1,0 +1,66 @@
+matrix wvpMat;
+Texture2D hdrMap;
+SamplerState pointSample;
+struct VertexIn
+{
+ float3 pos : POSITION;
+    float4 color: COLOR;
+	float3 normal:NORMAL;
+	float4 tangent:TANGENT;
+	float2 uv:UV;
+};
+
+struct VertexPosHL
+{
+	float4 PosH : SV_POSITION;
+	float3 PosHL : POS;
+	float3 normal : NORMAL;
+};
+
+float2 SampleSphericalMap(float3 v)
+{
+//	float2 uv = float2(atan2(v.z, v.x), asin(-v.y));
+//	uv /= float2(-6.28318530718f, 3.14159265359f);
+//	uv += float2(0.5, 0.5);
+//	return uv;
+	const float2 invAtan = float2(0.1591, -0.3183);
+	float2 uv = float2(atan2(v.z, v.x), asin(v.y));
+	uv *= invAtan;
+	uv.x+= 0.5;
+	uv.y-= 0.5;
+
+	return uv;
+}
+
+VertexPosHL VS(VertexIn vIn)
+{
+	VertexPosHL vOut;
+	vOut.PosHL = vIn.pos;
+	float4 posH = mul(float4(vIn.pos, 1.0f), wvpMat);
+	vOut.PosH = posH;
+	vOut.normal = vIn.normal;
+	return vOut;
+}
+float4 PS(VertexPosHL pIn) : SV_Target
+{
+float2 uv = SampleSphericalMap(normalize(pIn.normal));
+float3 color= hdrMap.Sample(pointSample, uv).xyz;
+//color = float3(1.0f, 1.0f, 1.0f) - exp(-color * 5.f);
+//color = color / (color + float3(1.0, 1.0, 1.0));
+return float4(color, 1.0);
+}
+technique11 BasicTech
+{
+	pass P0
+
+	{
+
+		SetVertexShader(CompileShader(vs_5_0, VS()));
+
+		SetGeometryShader(NULL);
+
+		SetPixelShader(CompileShader(ps_5_0, PS()));
+
+	}
+
+}

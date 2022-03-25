@@ -230,6 +230,7 @@ UAssimpPrimitiveComponent::UAssimpPrimitiveComponent(TArray<FMeshPrimitiveCompon
 	SetEffectShader(shaderName);
 	//调用父类初始化参数
 	Super::ImportModel("Defulat");
+			InitBuffer();
 }
 
 UAssimpPrimitiveComponent::UAssimpPrimitiveComponent(FString meshPath, FString shaderName /*= FString()*/)
@@ -240,22 +241,32 @@ UAssimpPrimitiveComponent::UAssimpPrimitiveComponent(FString meshPath, FString s
 		TMap<FString, UPrimitiveComponent*>::iterator key = UPrimitiveComponent::GetProyxRenderData().find(meshPath);
 		if (key!= UPrimitiveComponent::GetProyxRenderData().end())
 		{
-			Log_Info("Already Load mesh="+ meshPath+" So Dirct Copy Memory")
-		    //内存拷贝
-			key->second->CopyPrimitiveData(this);
-			//调用父类初始化参数
-			Super::ImportModel(meshPath);
-			//设置着色器参数
-			SetEffectShader(shaderName);
+			if (key->second)
+			{
+				Log_Info("Already Load mesh=" + meshPath + " So Dirct Copy Memory")
+					//内存拷贝
+				key->second->CopyPrimitiveData(this);
+				//调用父类初始化参数
+				Super::ImportModel(meshPath);
+				//设置着色器参数
+				SetEffectShader(shaderName);
+			}
+			else
+			{
+				Log_Error(meshPath+"load fail")
+			}
+
 		}
 		else
 		{
 			//本地加载模型
 			ImportModel(meshPath);
 			SetEffectShader(shaderName);
-			//更新已经加载的模型路径和资源到容器里面
-			UpdataMeshPath();
+		//更新已经加载的模型路径和资源到容器里面 暂时不用
+		//	UpdataMeshPath();
 		}
+		//初始化buffer
+		InitBuffer();
 	}
 
 }
@@ -304,7 +315,6 @@ void UAssimpPrimitiveComponent::OnUnregister()
 void UAssimpPrimitiveComponent::ImportModel(const FString& modelPath)
 {
 	Importer importer;
-	std::string xx = modelPath.GetString();
 	Log_Info(modelPath.GetString());
 	const aiScene* scene = importer.ReadFile(modelPath.GetString(), aiProcess_Triangulate
 		| aiProcess_CalcTangentSpace

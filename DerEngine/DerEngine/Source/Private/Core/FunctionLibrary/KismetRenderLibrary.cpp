@@ -28,7 +28,7 @@ void UKismetRenderLibrary::RHI_DrawMatrialToRenderTarget(ID3D11RenderTargetView*
 		mesh->SetTextureParameterValue("renderTexture", Texture::CreateTextureFromFile(texture2D));
 		meshActor->AddAttachComponent(mesh);
 		//DrawCall
-		meshActor->Draw(0.f);
+		meshActor->Draw();
 
 		FRHI::RHI_ExecutePresent();
 

@@ -34,7 +34,7 @@ public:
 	void SetClassName(const FString& name);
 private:
 	void InitResource();
-private:
+protected:
 	FString objectName;
 	FString className;
 	FString pathName;

@@ -34,6 +34,12 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
   return	UGame::Get()->GetGameInstance()->GetEffect();
 }
 
+
+ class FRHIRenderPassInfo* FRHI::RHI_GetRenderPassInfo()
+ {
+	return GetRenderThread()->GetRenderPassInfo();
+ }
+
  void FRHI::RHI_ClearSwapChainRenderTargetView(FVector4D color/*=FVector4D(0.f,0.f,0.f,1.0f)*/)
 {
 	GetRenderThread()->ClearSwapChainRenderTargetView(color);
@@ -55,7 +61,6 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 	GetRenderThread()->SetSwapChainRenderTargetAndDepthStencilView();
 }
 
-
  void FRHI::RHI_UpdataViewPort(int TopLeftX, int TopLeftY, int Width, int Height,  float MidDepth /*= 0.0f*/, float MaxDepth /*= 1.0f*/, UINT NumViewports /*= 1*/)
 {
 	//更新渲染管线
@@ -67,7 +72,6 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 {
 	return  GetRenderThread()->GetRenderStart();
 }
-
 
  bool FRHI::ImGui_ImplWin32_MsgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -85,7 +89,6 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 {
 	 GetRenderThread()->CreateBuffer(pDesc, pInitialData, ppBuffer);
 }
-
 
  void FRHI::RHI_CreateTexture2D(  const D3D11_TEXTURE2D_DESC* pDesc,const D3D11_SUBRESOURCE_DATA* pInitialData, ID3D11Texture2D** ppTexture2D)
  {
@@ -148,8 +151,6 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 	 GetRenderThread()->OnResize();
  }
 
- 
-
  void FRHI::RHI_SetRenderTargets(ID3D11RenderTargetView* const* ppRenderTargetViews)
  {
 	 GetRenderThread()->SetRenderTargets(ppRenderTargetViews);
@@ -200,11 +201,6 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 	GetRenderThread()->SetPrimitiveTopology(Topology);
 }
 
- // FRender::D3D11Struct& FRHI::GetD3DInterface()
-// {
-// 	return GetRenderThread()->GetD3DInterface();
-// }
-
  ID3D11Device* FRHI::RHI_GetD3d11Device()
 {
    return	GetRenderThread()->GetD3DInterface().D3D11Device.Get();
@@ -214,3 +210,128 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 {
 	return	GetRenderThread()->GetD3DInterface().D3D11ImmediateContext.Get();
 }
+ void FRHI::CreateTexture2DCubeFromArray(unsigned int Width, unsigned int height, ID3D11ShaderResourceView** m_pDynamicCubeMapSRV, ComPtr<ID3D11RenderTargetView>* m_pDynamicCubeMapRTVs,/* ComPtr<ID3D11DepthStencilView>& m_DSV,*/ DXGI_FORMAT Format /*= DXGI_FORMAT_R16G16B16A16_FLOAT*/)
+ {
+	 
+	 ComPtr<ID3D11Texture2D> texCube;
+	 D3D11_TEXTURE2D_DESC texDesc;
+	 Log_Info(("Cubemap Size_X") + std::to_string(Width));
+	 Log_Info(("Cubemap Size_y") + std::to_string(height));
+	 texDesc.Width = Width;
+	 texDesc.Height = height;
+	 texDesc.MipLevels = 1;
+	 texDesc.ArraySize = 6;
+	 texDesc.SampleDesc.Count = 1;
+	 texDesc.SampleDesc.Quality = 0;
+	 texDesc.Format = Format;
+	 texDesc.Usage = D3D11_USAGE_DEFAULT;
+	 texDesc.BindFlags = D3D11_BIND_RENDER_TARGET | D3D11_BIND_SHADER_RESOURCE;
+	 texDesc.CPUAccessFlags = 0;
+	 texDesc.MiscFlags = D3D11_RESOURCE_MISC_GENERATE_MIPS | D3D11_RESOURCE_MISC_TEXTURECUBE;
+
+	 // 现在texCube用于新建纹理
+	 HR(FRHI::RHI_GetD3d11Device()->CreateTexture2D(&texDesc, nullptr, texCube.ReleaseAndGetAddressOf()));
+	 Log_Info(("Create ibl_irradiance CubeMap"));
+	 D3D11_RENDER_TARGET_VIEW_DESC rtvDesc;
+	 rtvDesc.Format = texDesc.Format;
+	 rtvDesc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2DARRAY;
+	 rtvDesc.Texture2DArray.MipSlice = 0;
+	 rtvDesc.Texture2DArray.ArraySize = 1;
+	 for (int i = 0; i < 6; ++i)
+	 {
+		 rtvDesc.Texture2DArray.FirstArraySlice = i;
+		 HR(FRHI::RHI_GetD3d11Device()->CreateRenderTargetView(
+			 texCube.Get(),
+			 &rtvDesc,
+			 m_pDynamicCubeMapRTVs[i].GetAddressOf()));
+
+		 Log_Info(("Create Cubemap RTV ") + std::to_string(i));
+	 }
+	 //创建着色器目标视图
+	 D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
+	 srvDesc.Format = texDesc.Format;
+	 srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURECUBE;
+	 srvDesc.TextureCube.MostDetailedMip = 0;
+	 srvDesc.TextureCube.MipLevels = -1;	// 使用所有的mip等级
+
+	 HR(FRHI::RHI_GetD3d11Device()->CreateShaderResourceView(
+		 texCube.Get(),
+		 &srvDesc,
+		 m_pDynamicCubeMapSRV));
+	 Log_Info(("Create ibl_irradiance Cube SRV "));
+
+	 // 4. 创建深度/模板缓冲区与对应的视图
+// 
+// 	 texDesc.Width = Width;
+// 	 texDesc.Height = height;
+// 	 texDesc.MipLevels = 1;
+// 	 texDesc.ArraySize = 1;
+// 	 texDesc.SampleDesc.Count = 1;
+// 	 texDesc.SampleDesc.Quality = 0;
+// 	 texDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+// 	 texDesc.Usage = D3D11_USAGE_DEFAULT;
+// 	 texDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+// 	 texDesc.CPUAccessFlags = 0;
+// 	 texDesc.MiscFlags = 0;
+// 
+// 	 ComPtr<ID3D11Texture2D> depthTex;
+// 	 FRHI::RHI_GetD3d11Device()->CreateTexture2D(&texDesc, nullptr, depthTex.GetAddressOf());
+// 
+// 	 D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc;
+// 	 dsvDesc.Format = texDesc.Format;
+// 	 dsvDesc.Flags = 0;
+// 	 dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+// 	 dsvDesc.Texture2D.MipSlice = 0;
+// 
+// 	 HR(FRHI::RHI_GetD3d11Device()->CreateDepthStencilView(
+// 		 depthTex.Get(),
+// 		 &dsvDesc,
+// 		 m_DSV.GetAddressOf()));
+ }
+
+ DirectX::XMMATRIX FRHI::CaptureScene(XMFLOAT3 pos, D3D11_TEXTURECUBE_FACE face, ComPtr<ID3D11RenderTargetView>& m_pDynamicCubeMapRTVs, unsigned int ViewPortSize_X /*= 512*/, unsigned int ViewPortSize_Y /*= 512*/)
+ {
+	  XMVECTORF32 ups[6] = {
+		{{ 0.0f, 1.0f, 0.0f, 0.0f }},	// +X
+		{{ 0.0f, 1.0f, 0.0f, 0.0f }},	// -X
+		{{ 0.0f, 0.0f, -1.0f, 0.0f }},	// +Y
+		{{ 0.0f, 0.0f, 1.0f, 0.0f }},	// -Y
+		{{ 0.0f, 1.0f, 0.0f, 0.0f }},	// +Z
+		{{ 0.0f, 1.0f, 0.0f, 0.0f }}	// -Z
+	 };
+
+	  XMVECTORF32 looks[6] = {
+		 {{ 1.0f, 0.0f, 0.0f, 0.0f }},	// +X
+		 {{ -1.0f, 0.0f, 0.0f, 0.0f }},	// -X
+		 {{ 0.0f, 1.0f, 0.0f, 0.0f }},	// +Y
+		 {{ 0.0f, -1.0f, 0.0f, 0.0f }},	// -Y
+		 {{ 0.0f, 0.0f, 1.0f, 0.0f }},	// +Z
+		 {{ 0.0f, 0.0f, -1.0f, 0.0f }},	// -Z
+	 };
+	  XMVECTOR L = XMVector3Normalize(looks[face].v);
+	  XMVECTOR R = XMVector3Normalize(XMVector3Cross(ups[face].v, L));
+	  XMVECTOR U = XMVector3Cross(L, R);
+	  XMVECTOR P = XMLoadFloat3(&pos);
+
+      DirectX::XMFLOAT3 forwardVector;
+	  DirectX::XMFLOAT3 upVector;
+	  DirectX::XMFLOAT3 rightVector;
+	  DirectX::XMStoreFloat3(&forwardVector, L);
+	  DirectX::XMStoreFloat3(&upVector, U);
+	  DirectX::XMStoreFloat3(&rightVector, R);
+	  // 填充观察矩阵
+	  float x = -XMVectorGetX(XMVector3Dot(P, R));
+	  float y = -XMVectorGetX(XMVector3Dot(P, U));
+	  float z = -XMVectorGetX(XMVector3Dot(P, L));
+	  DirectX::XMMATRIX view = {
+		  rightVector.x,upVector.x, forwardVector.x, 0.0f,
+		  rightVector.y,upVector.y, forwardVector.y, 0.0f,
+		  rightVector.z,upVector.z, forwardVector.z, 0.0f,
+		  x, y, z, 1.0f
+	  };
+	  DirectX::XMMATRIX pro = DirectX::XMMatrixPerspectiveFovLH(XM_PIDIV2, ViewPortSize_X / ViewPortSize_Y, 0.1f, 100.f);
+	  return XMMatrixMultiply(view, pro);
+// 	  _world = DirectX::XMMatrixTranslation(_PositionLocation.X, _PositionLocation.Y, _PositionLocation.Z);
+	
+	
+ }

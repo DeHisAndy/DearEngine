@@ -8,17 +8,24 @@
 #include "../../../Public/Core/Render/RHI.h"
 #include "../../../Core/FunctionLibrary/GamePlayStatics.h"
 #include "../../../Core/Object/Object/GameInstance/GameInstance.h"
+#include "../../../Core/Render/RhiRenderPassInfo.h"
 
 FRender::FRender()
 {
 	m_Enable4xMsaa = false;
 	m_4xMsaaQuality = false;
 	F_RenderStart = false;
+	rhiRenderPassInfo = new  FRHIRenderPassInfo();
 	Log_Info("RenderThread New")
 }
 
 FRender::~FRender()
 {
+	if (rhiRenderPassInfo)
+	{
+		delete rhiRenderPassInfo;
+		rhiRenderPassInfo = nullptr;
+	}
 	Log_Info("RenderThread delete")
 }
 
@@ -280,4 +287,9 @@ void FRender::InitDirect3D()
 bool FRender::GetRenderStart()
 {
 	return F_RenderStart;
+}
+
+class FRHIRenderPassInfo* FRender::GetRenderPassInfo()
+{
+	return rhiRenderPassInfo;
 }

@@ -179,9 +179,15 @@ void UGameViewport::SetMouse(int x, int y)
 
 FMatrix& UGameViewport::GetPerspectiveMatirx()
 {
-	DirectX::XMMATRIX matrix = DirectX::XMMatrixPerspectiveFovLH(XM_PIDIV2, UKismetSystemLibrary::GetAspect(), 1.0f, 1000.0f);
+	DirectX::XMMATRIX matrix = DirectX::XMMatrixPerspectiveFovLH(XM_PI / 3, UKismetSystemLibrary::GetAspect(), 1.0f, 1000.0f);
 	memcpy(&perspectiveMatirx.M, matrix.r, sizeof(__m128) * 4);
 	return perspectiveMatirx;
+}
+
+
+FIntPoint UGameViewport::GetViewportSize()
+{
+	return ViewportSize;
 }
 
 void UGameViewport::WidgetInit()

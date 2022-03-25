@@ -117,6 +117,14 @@ void UMeshComponent::SetMaterixParameterValue(const FString& shaderVariableName,
 #endif
 }
 
+
+void UMeshComponent::SetMaterixParameterValue(const FString& shaderVariableName, float* matrix)
+{
+#ifdef  SHADER_DIRECTX11_EFFECT
+	Effect->GetVariableByName(shaderVariableName.GetString().c_str())->AsMatrix()->SetMatrix(reinterpret_cast<float*>(&matrix));
+#endif
+}
+
 void UMeshComponent::SetScalarParameterValue(const FString& shaderVariableName, float value)
 {
 #ifdef  SHADER_DIRECTX11_EFFECT
@@ -130,6 +138,21 @@ void UMeshComponent::SetTextureParameterValue(const FString& shaderVariableName,
 	if (texture && texture->_srv)
 	{
 		Effect->GetVariableByName(shaderVariableName.GetString().c_str())->AsShaderResource()->SetResource(texture->_srv);
+	}
+	else
+	{
+		Log_Error("SetTextureParameterValue texture==null or srv==null");
+	}
+#endif
+}
+
+
+void UMeshComponent::SetTextureParameterValue(const FString& shaderVariableName, ID3D11ShaderResourceView* texture)
+{
+#ifdef  SHADER_DIRECTX11_EFFECT
+	if (texture )
+	{
+		Effect->GetVariableByName(shaderVariableName.GetString().c_str())->AsShaderResource()->SetResource(texture);
 	}
 	else
 	{

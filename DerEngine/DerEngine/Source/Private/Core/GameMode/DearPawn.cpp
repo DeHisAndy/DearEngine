@@ -16,9 +16,9 @@ void ADearPawn::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 }
 
-void ADearPawn::Draw(float DeltaSeconds)
+void ADearPawn::Draw( )
 {
-	Super::Draw(DeltaSeconds);
+	Super::Draw();
 }
 
 void ADearPawn::Destroy()

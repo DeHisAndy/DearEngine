@@ -3,6 +3,7 @@
 #include "../../../Vector/Vector.h"
 #include <vector>
 #include "../../../Vector/TransformVectorized.h"
+#include "../TextureManage.h"
 
 class USceneComponent :public UActorComponent
 {

@@ -43,6 +43,8 @@ UWorld::~UWorld()
 void UWorld::Init()
 {	
 	TypeAS<AGameMode>(A_Gamemode, FString("UWorld Init GameMode=null"))->Init();
+	////初始化场景时候加载
+	PostCreateWorld();
 	for (size_t i = 0; i < arrayActor.size(); i++)
 	{
 		if (IsValidObject(arrayActor[i]))
@@ -55,7 +57,10 @@ void UWorld::Init()
 
 void UWorld::BeginPaly()
 {
+
 	TypeAS<AGameMode>(A_Gamemode, FString("UWorld BeginPaly GameMode=null"))->BeginPaly();
+	//创建场景组件
+	LoadWorld();
 	for (size_t i = 0; i < arrayActor.size(); i++)
 	{
 		if (IsValidObject(arrayActor[i]))
@@ -84,10 +89,10 @@ void UWorld::DrawScene(float DeltaSeconds)
 	{
 		if (IsValidObject(arrayActor[i]))
 		{
-			arrayActor[i]->Draw(DeltaSeconds);
+			arrayActor[i]->Draw();
 		}
  	}
-  	TypeAS<AGameMode>(A_Gamemode, FString("UWorld DrawScene GameMode=null"))->Draw(DeltaSeconds);
+  	TypeAS<AGameMode>(A_Gamemode, FString("UWorld DrawScene GameMode=null"))->Draw();
 }
 
 void UWorld::Destroy()
@@ -99,7 +104,6 @@ void UWorld::Destroy()
 		{
 			arrayActor[i]->Destroy();
 		}
-
 	}
 	Log_Info("World Destroy");
 }
@@ -114,6 +118,19 @@ void UWorld::AddActorToWorld(class AActor* Actor)
 	{
 		Log_Warning("AddActorToWorld actor==null");
 	}
+}
+
+
+
+void UWorld::PostCreateWorld()
+{
+
+}
+
+
+void UWorld::LoadWorld()
+{
+
 }
 
 AGameMode* UWorld::GetGameMode()

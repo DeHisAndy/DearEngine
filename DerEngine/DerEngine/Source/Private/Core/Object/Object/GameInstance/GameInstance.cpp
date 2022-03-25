@@ -278,10 +278,13 @@ void UGameInstance::LoadEngineContentAssetsResource()
 		FString suffix;
 		if (UKismetStringLibrary::GetFileSuffix(Teamp[i], suffix))
 		{	
-			Texture::CreateTextureFromFile(Teamp[i]);
+			if (suffix == TEXT("png") || suffix == TEXT("jpg") || suffix == TEXT("hdr") || suffix == TEXT("HDR"))
+			{
+				Texture::CreateTextureFromFile(Teamp[i]);
+			}
+
 		}
 	}
-
 }
 
 class	UWorld* UGameInstance::GetWorld()

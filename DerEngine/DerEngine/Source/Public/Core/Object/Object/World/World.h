@@ -14,6 +14,11 @@ public:
 	virtual void DrawScene(float DeltaSeconds);
 	virtual void Destroy();
 	virtual void AddActorToWorld(AActor* Actor);
+protected:
+	//初始化场景时候加载
+	virtual	void PostCreateWorld();
+	//场景初始化完 创建场景组件
+	virtual	void LoadWorld();
 public:
 	class	AGameMode* GetGameMode();
 	void SetGameMode(class AGameMode* GameMode);

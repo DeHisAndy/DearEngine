@@ -21,7 +21,7 @@ void APawn::Tick(float DeltaSeconds)
 	inputComponent->Tick(DeltaSeconds);
 }
 
-void APawn::Draw(float DeltaSeconds)
+void APawn::Draw( )
 {
 
 }

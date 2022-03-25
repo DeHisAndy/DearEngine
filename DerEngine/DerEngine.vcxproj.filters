@@ -596,6 +596,9 @@
     <ClInclude Include="DerEngine\Source\Public\Core\Engine\CoreTypes.h">
       <Filter>Source\Private\Core\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RhiRenderPassInfo.h">
+      <Filter>Source\Public\Core\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DerEngine\Source\Public\ThirdParty\Assimp\inc\assimp\color4.inl">
@@ -842,6 +845,9 @@
     </ClCompile>
     <ClCompile Include="DerEngine\Source\Private\Core\Object\Object\Component\Light\PointLightComponent.cpp">
       <Filter>Source\Private\Core\Object\Object\Component\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RhiRenderPassInfo.cpp">
+      <Filter>Source\Private\Core\Render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

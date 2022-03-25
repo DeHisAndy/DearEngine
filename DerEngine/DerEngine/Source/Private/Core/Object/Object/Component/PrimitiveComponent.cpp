@@ -23,7 +23,7 @@ UPrimitiveComponent::~UPrimitiveComponent()
 
 void UPrimitiveComponent::BeginPlay()
 {
-	InitBuffer();
+
 	Super::BeginPlay();
 }
 
@@ -68,12 +68,24 @@ void UPrimitiveComponent::SetMaterixParameterValue(const FString& shaderVariable
 
 }
 
+
+void UPrimitiveComponent::SetMaterixParameterValue(const FString& shaderVariableName, float* matrix)
+{
+
+}
+
 void UPrimitiveComponent::SetScalarParameterValue(const FString& shaderVariableName, float value)
 {
 
 }
 
 void UPrimitiveComponent::SetTextureParameterValue(const FString& shaderVariableName, const Texture* texture)
+{
+
+}
+
+
+void UPrimitiveComponent::SetTextureParameterValue(const FString& shaderVariableName, ID3D11ShaderResourceView* texture)
 {
 
 }
@@ -125,7 +137,8 @@ void UPrimitiveComponent::SetEffectShader(FString name, const D3D11_INPUT_ELEMEN
 
 void UPrimitiveComponent::CopyPrimitiveData(UPrimitiveComponent* PrimitiveComponent)
 {
-	PrimitiveComponent->GetPrimitiveData().assign(GetPrimitiveData().data(), GetPrimitiveData().data() + GetPrimitiveData().size());
+	std::vector<UPrimitiveComponent::FMeshPrimitiveComponent>& xx = GetPrimitiveData();
+	PrimitiveComponent->GetPrimitiveData().assign(xx.data(), GetPrimitiveData().data() + GetPrimitiveData().size());
 	PrimitiveComponent->GetMeshChildArrayName().assign(GetMeshChildArrayName().data(), GetMeshChildArrayName().data() + GetMeshChildArrayName().size());
 	PrimitiveComponent->SetPathName(this->GetPathName());
 	PrimitiveComponent->SetMeshName(this->GetMeshName());

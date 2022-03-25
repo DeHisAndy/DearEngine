@@ -54,6 +54,7 @@
     <ClInclude Include="DerEngine\Source\Public\Core\Render\RenderBase.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\Render\RenderState.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\Render\RHI.h" />
+    <ClInclude Include="DerEngine\Source\Public\Core\Render\RhiRenderPassInfo.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\Render\ShaderCompilerWorker.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\Render\ShaderEffect.h" />
     <ClInclude Include="DerEngine\Source\Public\Core\UI\Widget.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="DerEngine\Source\Private\Core\Render\RenderBase.cpp" />
     <ClCompile Include="DerEngine\Source\Private\Core\Render\RenderState.cpp" />
     <ClCompile Include="DerEngine\Source\Private\Core\Render\RHI.cpp" />
+    <ClCompile Include="DerEngine\Source\Private\Core\Render\RhiRenderPassInfo.cpp" />
     <ClCompile Include="DerEngine\Source\Private\Core\Render\ShaderCompilerWorker.cpp" />
     <ClCompile Include="DerEngine\Source\Private\Core\Render\ShaderEffect.cpp" />
     <ClCompile Include="DerEngine\Source\Private\Core\UI\Widget.cpp" />

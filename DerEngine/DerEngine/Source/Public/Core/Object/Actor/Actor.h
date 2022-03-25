@@ -10,7 +10,7 @@ public:
 	virtual void Init();
 	virtual void BeginPaly();
 	virtual void Tick(float DeltaSeconds) ;
-	virtual void Draw(float DeltaSeconds);
+	virtual void Draw();
 	virtual void Destroy();
 public:
 	static AActor* SpawnActor();

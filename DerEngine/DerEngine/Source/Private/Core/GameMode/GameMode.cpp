@@ -48,11 +48,11 @@ void AGameMode::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 }
 
-void AGameMode::Draw(float DeltaSeconds)
+void AGameMode::Draw( )
 {
-	TypeAS<APlayerController>(playController, FString("GameMode Draw PlayerController=null"))->Draw(DeltaSeconds);
-	TypeAS<APawn>(pawn, FString("GameMode Draw Pawn=null"))->Draw(DeltaSeconds);
-	Super::Draw(DeltaSeconds);
+	TypeAS<APlayerController>(playController, FString("GameMode Draw PlayerController=null"))->Draw();
+	TypeAS<APawn>(pawn, FString("GameMode Draw Pawn=null"))->Draw();
+	Super::Draw();
 }
 
 void AGameMode::Destroy()

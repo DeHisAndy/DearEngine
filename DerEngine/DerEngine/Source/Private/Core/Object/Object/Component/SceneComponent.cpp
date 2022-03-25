@@ -84,6 +84,7 @@ void USceneComponent::OnUnregister()
 
 }
 
+
 void USceneComponent::AddComponentOffset(FVector DeltaLocation)
 {
 	const FVector NewWorldLocation = DeltaLocation + GetComponentTransform().GetTranslation();

@@ -176,11 +176,22 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\Private\UE_BRDF.ush">
+    <None Include="Assets\Shaders\Private\UE_BxDF.ush">
       <FileType>Document</FileType>
     </None>
+    <FxCompile Include="Assets\Shaders\Public\HdrConverCubeMap.usf">
+      <FileType>Document</FileType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VS</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
     <None Include="Assets\Shaders\Public\Light\ForwardRenderingLight.usf" />
-    <None Include="Assets\Shaders\Public\SkyBox.usf" />
+    <FxCompile Include="Assets\Shaders\Public\SkyBox.usf">
+      <FileType>Document</FileType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VS</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,8 +20,10 @@ public:
 	virtual	void SetVectorParameterValue(const FString& shaderVariableName, FVector4D& vector)override;
 	virtual	void SetBoolParameterValue(const FString& shaderVariableName, bool value) override;
 	virtual	void SetMaterixParameterValue(const FString& shaderVariableName, FMatrix& matrix)override;
+	virtual	void SetMaterixParameterValue(const FString& shaderVariableName,float* matrix)override;
 	virtual	void SetScalarParameterValue(const FString& shaderVariableName, float value)override;
 	virtual	void SetTextureParameterValue(const FString& shaderVariableName, const Texture* texture)override;
+	virtual	void SetTextureParameterValue(const FString& shaderVariableName, ID3D11ShaderResourceView* texture)override;
 	virtual	void SetSamplerParameterValue(const FString& shaderVariableName, ID3D11SamplerState* sampler)override;
 	virtual void SetDepthStencilState(ID3D11DepthStencilState* pDepthStencilState, UINT StencilRef = 0)override;
 	virtual void SetRasterizerState(ID3D11RasterizerState* pRasterizerState)override;

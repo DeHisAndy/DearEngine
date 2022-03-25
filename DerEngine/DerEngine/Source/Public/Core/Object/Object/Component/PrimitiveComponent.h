@@ -54,8 +54,10 @@ public:
 	virtual	void SetVectorParameterValue(const FString& shaderVariableName,  FVector4D& vector);
 	virtual	void SetBoolParameterValue(const FString& shaderVariableName, bool value);
 	virtual	void SetMaterixParameterValue(const FString& shaderVariableName,  FMatrix& matrix);
+	virtual	void SetMaterixParameterValue(const FString& shaderVariableName, float* matrix);
 	virtual	void SetScalarParameterValue(const FString& shaderVariableName, float value);
 	virtual	void SetTextureParameterValue(const FString& shaderVariableName, const Texture* texture);
+	virtual	void SetTextureParameterValue(const FString& shaderVariableName, ID3D11ShaderResourceView* texture);
 	virtual	void SetSamplerParameterValue(const FString& shaderVariableName,  ID3D11SamplerState* sampler);
 	virtual void SetDepthStencilState(ID3D11DepthStencilState* pDepthStencilState, UINT StencilRef = 0);
 	virtual void SetRasterizerState(ID3D11RasterizerState* pRasterizerState);

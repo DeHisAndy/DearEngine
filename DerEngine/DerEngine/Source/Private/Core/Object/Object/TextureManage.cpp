@@ -54,15 +54,11 @@ Texture* Texture::CreateTextureFromFile(const  FString& texFileName, bool bGener
 		Log_Error(texFileName + "The text format is incorrect");
 		return nullptr;
 	}
-	//引擎暂时支持的图片格式
-	if (suffix == TEXT("png") || suffix == TEXT("jpg")||suffix == TEXT("hdr") || suffix == TEXT("HDR"))
-	{
-		if (suffix == "hdr" || suffix == "HDR")
+	if (suffix == "hdr" || suffix == "HDR")
 		{
 			//加载HDR图
 			return CreateHDRTexture(texFileName);
 		}
-	}
 	//加载png和jpg图片
 	const FString path = texFileName;
 #if _DEBUG

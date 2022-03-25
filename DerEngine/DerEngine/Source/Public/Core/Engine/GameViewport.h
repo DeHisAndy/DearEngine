@@ -82,6 +82,7 @@ public:
 	static void SetGameRenderingEnabled(bool bIsEnabled) { bIsGameRenderingEnabled = bIsEnabled; };
 	static bool IsGameRenderingEnabled() { return bIsGameRenderingEnabled; }
 	FMatrix& GetPerspectiveMatirx();
+	FIntPoint GetViewportSize();
 public:
 /// <summary>
 /// uiº¯Êý

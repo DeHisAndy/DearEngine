@@ -48,7 +48,7 @@ void AActor::Tick(float DeltaSeconds)
 	U_RootComponent->Tick(DeltaSeconds);
 }
 
-void AActor::Draw(float DeltaSeconds)
+void AActor::Draw()
 {
 	U_RootComponent->Draw();
 }

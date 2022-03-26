@@ -329,7 +329,7 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 		  rightVector.z,upVector.z, forwardVector.z, 0.0f,
 		  x, y, z, 1.0f
 	  };
-	  DirectX::XMMATRIX pro = DirectX::XMMatrixPerspectiveFovLH(XM_PIDIV2, ViewPortSize_X / ViewPortSize_Y, 0.1f, 100.f);
+	  DirectX::XMMATRIX pro = DirectX::XMMatrixPerspectiveFovLH(XM_PIDIV2,float(ViewPortSize_X / ViewPortSize_Y), 0.1f, 100.f);
 	  return XMMatrixMultiply(view, pro);
 // 	  _world = DirectX::XMMatrixTranslation(_PositionLocation.X, _PositionLocation.Y, _PositionLocation.Z);
 	

@@ -25,6 +25,7 @@ private:
 	//引擎启动初始化content下所有资源
 	void LoadEngineContentAssetsResource();
 
+
 public:
 	class	UWorld* GetWorld();
 	class	UShaderCompilerWorker* GetEffect();
@@ -33,4 +34,7 @@ private:
 	class	UWorld* defaultWrold;
 	class   UShaderCompilerWorker* defulatShaderEffect;
 	class   UGameViewport* defulatGameViewport;
+protected:
+	//是否初始化成功
+	bool instanceLoad;
 };

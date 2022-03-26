@@ -277,7 +277,7 @@ void UGameViewport::TaskLambda(taskEvent event)
 
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-
+	FRHI::RHI_ExecutePresent();
 }
 
 // unsigned int UGameViewport::AddTaskLambda(taskEvent event, unsigned int level/* = 0*/)

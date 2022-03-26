@@ -83,4 +83,3 @@ void UGamePlayStatics::TaskToViewportLambda(taskEvent task)
 {
 	UGamePlayStatics::GetGameViewport()->TaskLambda(task);
 }
-

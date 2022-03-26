@@ -26,6 +26,7 @@ UGameInstance::UGameInstance()
 
 UGameInstance::UGameInstance(UWorld* world, UShaderCompilerWorker* effect, UGameViewport* gameViewport)
 {
+	instanceLoad = false;
 	if (world)
 	{
 		this->defaultWrold = world;
@@ -78,7 +79,59 @@ UGameInstance::~UGameInstance()
 	}
 	Log_Info("GameInstance delete");
 }
+void TaskToViewportLambdaLogOut(FString log) {
+	//渲染加载界面
+	UGamePlayStatics::TaskToViewportLambda([]() {
+		//设置窗口位置
+		ImGui::SetNextWindowPos(ImVec2(1.f, 1.f), 0, ImVec2(0.f, 0.f));
+		//设置窗口的大小
+		ImGui::SetNextWindowSize(ImVec2((float)UKismetSystemLibrary::GetWinSize().X, (float)UKismetSystemLibrary::GetWinSize().Y));
+		//设置窗口为透明
+		ImGui::SetNextWindowBgAlpha(0);
+		//设置窗口的padding为0是图片控件充满窗口
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+		//设置窗口为无边框
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
+		//创建窗口使其固定在一个位置
+		ImGui::Begin("加载画面", NULL, ImGuiWindowFlags_NoMove |
+			ImGuiWindowFlags_NoTitleBar |
+			ImGuiWindowFlags_NoBringToFrontOnFocus |
+			ImGuiWindowFlags_NoInputs |
+			ImGuiWindowFlags_NoCollapse |
+			ImGuiWindowFlags_NoResize |
+			ImGuiWindowFlags_NoScrollbar |
+			ImGuiWindowFlags_NoBackground);
+		ImGui::Image(Texture::CreateTextureFromFile("Assets/Content/loading/Loading.png")->_srv, ImVec2((float)UKismetSystemLibrary::GetWinSize().X, (float)UKismetSystemLibrary::GetWinSize().Y));
 
+		ImGui::End();
+		ImGui::PopStyleVar(2);
+		}
+	);
+	UGamePlayStatics::TaskToViewportLambda([=]() {
+		//设置窗口位置
+		ImGui::SetNextWindowPos(ImVec2(0.f, (float)UKismetSystemLibrary::GetWinSize().Y - (float)UKismetSystemLibrary::GetWinSize().Y / 14.f), 0, ImVec2(0.f, 0.f));
+		//设置窗口的大小
+		ImGui::SetNextWindowSize(ImVec2((float)UKismetSystemLibrary::GetWinSize().X, (float)UKismetSystemLibrary::GetWinSize().Y));
+		//设置窗口的padding为0是图片控件充满窗口
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+		//设置窗口为无边框
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
+		//创建窗口使其固定在一个位置
+		ImGui::Begin("加载画面", NULL, ImGuiWindowFlags_NoMove |
+			ImGuiWindowFlags_NoTitleBar |
+			ImGuiWindowFlags_NoBringToFrontOnFocus |
+			ImGuiWindowFlags_NoInputs |
+			ImGuiWindowFlags_NoCollapse |
+			ImGuiWindowFlags_NoResize |
+			ImGuiWindowFlags_NoScrollbar);
+		ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
+		ImGui::TextWrapped(log.GetString().c_str());
+		ImGui::PopStyleColor();
+		ImGui::End();
+		ImGui::PopStyleVar(2);
+		}
+	);
+}
 
 void UGameInstance::Init()
 {
@@ -91,8 +144,16 @@ void UGameInstance::Init()
 	TypeAS<UShaderCompilerWorker>(defulatShaderEffect, FString("GameInstance Init ShaderEffect=null"))->Init();
 	//初始化引擎资源
 	this->LoadEngineContentAssetsResource();
+	//场景初始化
 	TypeAS<UWorld>(defaultWrold, FString("GameInstance Init World=null"))->Init();
 	Log_Info("GameInstance Init");
+	//输出加载时所有log
+	TArray<std::pair<int, FString>>& str = Log::Get()->GetData();
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		TaskToViewportLambdaLogOut(str[i].second);
+	}
+	//设置最终大小
 	UKismetSystemLibrary::SetWindowPosAndySize(FIntPoint(0, 0), UKismetSystemLibrary::GetDisplayScreenSize());
 }
 
@@ -239,13 +300,15 @@ void UGameInstance::EngineLoadingPar()
 {
 	//显示窗口
 	UKismetSystemLibrary::ShowWindow();
-	UKismetSystemLibrary::SetWindowPosAndySize(FIntPoint(700,500),FIntPoint(500, 200));
+	FIntPoint screenSize = UKismetSystemLibrary::GetDisplayScreenSize();
+	UKismetSystemLibrary::SetWindowPosAndySize(screenSize/2- screenSize/6, FIntPoint(screenSize.X/3, screenSize.Y/4));
+
 	//渲染加载界面
 	UGamePlayStatics::TaskToViewportLambda([]() {
 		//设置窗口位置
-		ImGui::SetNextWindowPos(ImVec2(0.f, 0.f), 0, ImVec2(0.f, 0.f));
+		ImGui::SetNextWindowPos(ImVec2(1.f, 1.f), 0, ImVec2(0.f, 0.f));
 		//设置窗口的大小
-		ImGui::SetNextWindowSize(ImVec2((float)UKismetSystemLibrary::GetWinSize().X,(float)UKismetSystemLibrary::GetWinSize().Y));
+		ImGui::SetNextWindowSize(ImVec2((float)UKismetSystemLibrary::GetWinSize().X, (float)UKismetSystemLibrary::GetWinSize().Y));
 		//设置窗口为透明
 		ImGui::SetNextWindowBgAlpha(0);
 		//设置窗口的padding为0是图片控件充满窗口
@@ -259,13 +322,15 @@ void UGameInstance::EngineLoadingPar()
 			ImGuiWindowFlags_NoInputs |
 			ImGuiWindowFlags_NoCollapse |
 			ImGuiWindowFlags_NoResize |
-			ImGuiWindowFlags_NoScrollbar);
+			ImGuiWindowFlags_NoScrollbar |
+			ImGuiWindowFlags_NoBackground);
 		ImGui::Image(Texture::CreateTextureFromFile("Assets/Content/loading/Loading.png")->_srv, ImVec2((float)UKismetSystemLibrary::GetWinSize().X, (float)UKismetSystemLibrary::GetWinSize().Y));
+
 		ImGui::End();
 		ImGui::PopStyleVar(2);
-	}
+		}
 	);
-	FRHI::RHI_ExecutePresent();
+
 }
 
 void UGameInstance::LoadEngineContentAssetsResource()
@@ -280,6 +345,7 @@ void UGameInstance::LoadEngineContentAssetsResource()
 		{	
 			if (suffix == TEXT("png") || suffix == TEXT("jpg") || suffix == TEXT("hdr") || suffix == TEXT("HDR"))
 			{
+				TaskToViewportLambdaLogOut("Load... "+Teamp[i]);
 				Texture::CreateTextureFromFile(Teamp[i]);
 			}
 
